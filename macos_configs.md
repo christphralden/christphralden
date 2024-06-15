@@ -87,6 +87,12 @@ brew install ripgrep
 brew install bat
 ```
 
+#### tree
+```sh
+#Install using Homebrew
+brew install tree
+```
+
 ### Custom Functions
 *Note: All of these are in ~/.zshrc
 
