@@ -1,7 +1,14 @@
-
 # macOS Configuration
 
+## System Configurations
+
+```sh
+#Disable accent press
+defaults write -g ApplePressAndHoldEnabled -bool false
+```
+
 ## Dock Configuration
+
 ```sh
 # Remove the dock autohide delay
 defaults write com.apple.dock autohide-delay -float 0
@@ -11,6 +18,7 @@ killall Dock
 ## Terminal Configurations
 
 ### Homebrew Installation
+
 ```sh
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -21,37 +29,47 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
 ### iTerm2 Installation
+
 ```sh
 brew install --cask iterm2
 ```
 
 ### Oh My Zsh Installation
+
 ```sh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
-*Note: Previous settings will be saved to `~/.zshrc.pre-oh-my-zsh`.*
+
+_Note: Previous settings will be saved to `~/.zshrc.pre-oh-my-zsh`._
 
 ### Theme: PowerLevel10k
+
 ```sh
 git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 ```
-*Note: Set the theme in `~/.zshrc`*
+
+_Note: Set the theme in `~/.zshrc`_
+
 ```sh
 ZSH_THEME="powerlevel10k/powerlevel10k"
 ```
 
 ### Zsh Plugins Installation
+
 #### zsh-autosuggestions
+
 ```sh
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 ```
 
 #### zsh-syntax-highlighting
+
 ```sh
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 
-*Note: Configure plugins in `~/.zshrc`*
+_Note: Configure plugins in `~/.zshrc`_
+
 ```sh
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
 ```
@@ -59,11 +77,13 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
 ### Terminal Utilities
 
 #### VSCode FindItFaster
+
 ```sh
 https://github.com/tomrijndorp/vscode-finditfaster
 ```
 
 #### fzf
+
 ```sh
 #Install using Homebrew
 brew install fzf
@@ -76,27 +96,32 @@ brew update; brew upgrade fzf
 ```
 
 #### rigrep
+
 ```sh
 #Install using Homebrew
 brew install ripgrep
 ```
 
 #### bat
+
 ```sh
 #Install using Homebrew
 brew install bat
 ```
 
 #### tree
+
 ```sh
 #Install using Homebrew
 brew install tree
 ```
 
 ### Custom Functions
-*Note: All of these are in ~/.zshrc
+
+\*Note: All of these are in ~/.zshrc
 
 #### fuzzy cd
+
 ```sh
 fcd() {
   local dir
@@ -112,6 +137,7 @@ fcd() {
 ```
 
 #### fuzzy open finder
+
 ```sh
 fop() {
   local file
@@ -126,7 +152,9 @@ fop() {
   fi
 }
 ```
+
 #### fuzzy open vscode
+
 ```sh
 vsc() {
   local file
@@ -144,7 +172,3 @@ vsc() {
 #Create an alias overriding code
 alias code="vsc"
 ```
-
-
-
-
