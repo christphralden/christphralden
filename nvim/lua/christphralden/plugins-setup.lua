@@ -29,6 +29,12 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 	use("nvim-lua/plenary.nvim") -- lua functions
 	use("bluz71/vim-nightfly-guicolors") -- colorscheme
+	use({
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	})
 	use("christoomey/vim-tmux-navigator") -- tab navigator [tn, tp, tn, tx], [sx,sh,sv,se], [ctrl + movementkeys]
 	use("szw/vim-maximizer") -- maximizes and restores current window [<leader>sm]
 
