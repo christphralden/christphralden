@@ -114,6 +114,10 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- auto closing
+	use("windwp/nvim-autopairs")
+	use("windwp/nvim-ts-autotag")
+
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 

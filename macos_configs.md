@@ -116,6 +116,26 @@ brew install bat
 brew install tree
 ```
 
+#### lsd
+
+```sh
+#Install using homebrew
+brew install lsd
+
+#Create alias
+alias ls="lsd -hA --group-dirs first"
+```
+
+#### tree
+
+```sh
+#Install using homebrew
+brew install tree
+
+#Create alias
+alias tree="tree -a -L 2 -h -f"
+```
+
 ### Custom Functions
 
 \*Note: All of these are in ~/.zshrc
@@ -171,4 +191,10 @@ vsc() {
 
 #Create an alias overriding code
 alias code="vsc"
+```
+
+#### ip
+
+```sh
+alias ip="ipconfig getifaddr en0"
 ```
