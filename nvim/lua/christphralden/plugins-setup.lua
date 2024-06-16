@@ -53,6 +53,17 @@ return packer.startup(function(use)
 
 	-- status bar
 	use("nvim-lualine/lualine.nvim")
+	use({
+		"utilyre/barbecue.nvim",
+		tag = "*",
+		requires = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+		config = function()
+			require("barbecue").setup()
+		end,
+	})
 
 	-- fuzzy finding
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- better sorting performance
@@ -105,6 +116,9 @@ return packer.startup(function(use)
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+
+	--transparent background
+	use("xiyaowong/transparent.nvim")
 
 	if packer_bootstrap then
 		require("packer").sync()

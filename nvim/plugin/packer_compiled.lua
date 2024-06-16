@@ -89,6 +89,12 @@ _G.packer_plugins = {
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/ReplaceWithRegister",
     url = "https://github.com/vim-scripts/ReplaceWithRegister"
   },
+  ["barbecue.nvim"] = {
+    config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rbarbecue\frequire\0" },
+    loaded = true,
+    path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/barbecue.nvim",
+    url = "https://github.com/utilyre/barbecue.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -174,6 +180,11 @@ _G.packer_plugins = {
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-navic"] = {
+    loaded = true,
+    path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/nvim-navic",
+    url = "https://github.com/SmiteshP/nvim-navic"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -214,6 +225,11 @@ _G.packer_plugins = {
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["transparent.nvim"] = {
+    loaded = true,
+    path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/transparent.nvim",
+    url = "https://github.com/xiyaowong/transparent.nvim"
+  },
   ["typescript.nvim"] = {
     loaded = true,
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/typescript.nvim",
@@ -242,6 +258,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: barbecue.nvim
+time([[Config for barbecue.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rbarbecue\frequire\0", "config", "barbecue.nvim")
+time([[Config for barbecue.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
