@@ -16,6 +16,9 @@ treesitter.setup({
 	ensure_installed = {
 		"json",
 		"javascript",
+		"c",
+		"cpp",
+		"cmake",
 		"typescript",
 		"tsx",
 		"yaml",

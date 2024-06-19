@@ -14,6 +14,23 @@ if not lspkind_status then
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
+cmp.setup.cmdline("/", { -- CMP For Noice
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = { { name = "buffer" } },
+})
+
+cmp.setup.cmdline(":", { -- CMP For Noice
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = {
+		{ name = "path" },
+		{
+			name = "cmdline",
+			option = {
+				ignore_cmds = { "Man", "!" },
+			},
+		},
+	},
+})
 
 vim.opt.completeopt = "menu,menuone,noselect"
 
@@ -23,6 +40,7 @@ cmp.setup({
 			luasnip.lsp_expand(args.body)
 		end,
 	},
+
 	mapping = cmp.mapping.preset.insert({
 		["<C-j>"] = cmp.mapping.select_prev_item(), -- previous suggestion
 		["<C-k>"] = cmp.mapping.select_next_item(), -- next suggestion
@@ -34,10 +52,10 @@ cmp.setup({
 	}),
 	-- sources for autocompletion
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" }, -- lsp
-		{ name = "luasnip" }, -- snippets
-		{ name = "buffer" }, -- text within current buffer
-		{ name = "path" }, -- file system paths
+		{ name = "nvim_lsp", max_item_count = 3 }, -- lsp
+		{ name = "luasnip", max_item_count = 3 }, -- snippet
+		{ name = "buffer", max_item_count = 3 }, -- text within current buffer
+		{ name = "path", max_item_count = 3 }, -- file system paths
 	}),
 	-- configure lspkind for vs-code like icons
 	formatting = {

@@ -1,3 +1,4 @@
+vim.cmd("source ~/.config/nvim/vim/startup.vim")
 require("christphralden.plugins-setup")
 require("christphralden.core.options")
 require("christphralden.core.keymaps")
