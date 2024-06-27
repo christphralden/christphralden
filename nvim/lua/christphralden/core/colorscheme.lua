@@ -15,13 +15,13 @@ require("tokyonight").setup({
 		keywords = { italic = true },
 		functions = {},
 		variables = {},
-		sidebars = "dark", -- style for sidebars, see below
-		floats = "dark", -- style for floating windows
+		sidebars = "transparent", -- style for sidebars, see below
+		floats = "transparent", -- style for floating windows
 	},
 	sidebars = { "qf", "help", "vista_kind", "terminal", "packer" }, -- Set a darker background on sidebar-like windows.
 	day_brightness = 0.1, -- Adjusts the brightness of the colors of the Day style. Number between 0 and 1, from dull to vibrant colors
 	hide_inactive_statusline = false, -- Enabling this option will hide inactive statuslines and replace them with a thin border instead.
-	dim_inactive = true, -- dims inactive windows
+	dim_inactive = false, -- dims inactive windows
 	lualine_bold = false, -- When true, section headers in the lualine theme will be bold
 	on_colors = function(colors)
 		colors.hint = colors.orange

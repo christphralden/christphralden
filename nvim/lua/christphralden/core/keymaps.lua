@@ -37,7 +37,7 @@ keymap.set("n", "<C-o>", "<C-i>")
 keymap.set("n", "<C-i>", "<C-o>")
 
 -- transparent
-keymap.set("n", "<leader>T", ":TransparentToggle<CR>")
+keymap.set("n", "<leader>t", ":TransparentToggle<CR>")
 
 -- my bindings
 keymap.set("n", "<leader>cp", ":w<CR>:!clang++ % -o %< && ./%<<CR>", { noremap = true, silent = true })
@@ -49,3 +49,7 @@ keymap.set("n", "l", "w")
 keymap.set("v", "l", "w")
 keymap.set("n", "h", "b")
 keymap.set("v", "h", "b")
+keymap.set("i", "l;<leader>", "<C-o>m`<C-o>A;<C-o>``")
+keymap.set("i", ";<leader>", "<C-o>A;")
+keymap.set("i", ".<leader>", "<down><end>;<cr>")
+keymap.set("i", "l.<leader>", "<c-o>m`<down><end>;<c-o>``")

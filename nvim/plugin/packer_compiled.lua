@@ -250,6 +250,11 @@ _G.packer_plugins = {
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/typescript.nvim",
     url = "https://github.com/jose-elias-alvarez/typescript.nvim"
   },
+  ["vim-blade"] = {
+    loaded = true,
+    path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/vim-blade",
+    url = "https://github.com/jwalton512/vim-blade"
+  },
   ["vim-maximizer"] = {
     loaded = true,
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/vim-maximizer",

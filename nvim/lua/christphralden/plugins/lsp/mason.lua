@@ -9,6 +9,7 @@ if not mason_lspconfig_status then
 end
 
 local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
+
 if not mason_null_ls_status then
 	return
 end
@@ -23,6 +24,7 @@ mason_lspconfig.setup({
 		"jsonls",
 		"jdtls",
 		"intelephense",
+		"gopls",
 		"tsserver",
 		"html",
 		"cssls",
