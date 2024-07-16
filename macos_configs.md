@@ -136,7 +136,7 @@ brew install tree
 alias tree="tree -a -L 2 -h -f"
 ```
 
-### Custom Functions
+### Custom Functions && Oh My Zsh
 
 \*Note: All of these are in ~/.zshrc
 
@@ -197,4 +197,16 @@ alias code="vsc"
 
 ```sh
 alias ip="ipconfig getifaddr en0"
+```
+
+#### utils
+
+```sh
+alias ls="lsd -hA --group-dirs first"
+alias tree="tree -a -L 4 -h -f"
+alias ip="ipconfig getifaddr en0"
+alias detach="tmux detach"
+alias tnew='tmux new -s'
+alias attach='tmux attach -t'
+alias gitnuke='git clean -df && git reset HEAD --hard'
 ```

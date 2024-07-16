@@ -135,3 +135,8 @@ lspconfig["gopls"].setup({
 		},
 	},
 })
+
+lspconfig["jdtls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
