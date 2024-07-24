@@ -1,0 +1,27 @@
+let mapleader = " "
+imap jk <ESC>
+nnoremap <leader>nh :nohl<CR>
+nnoremap x "_x
+nnoremap <leader>+ <C-a>
+nnoremap <leader>- <C-x>
+
+nnoremap e l
+vnoremap e l
+nnoremap w h
+vnoremap w h
+nnoremap l w
+vnoremap l w
+nnoremap h b
+vnoremap h b
+vnoremap H ^
+nnoremap H ^
+vnoremap L $
+nnoremap L $
+inoremap l;<leader> <C-o>m`<C-o>A;<C-o>``
+inoremap ;<leader> <C-o>A;
+inoremap .<leader> <down><end>;<CR>
+inoremap l.<leader> <C-o>m`<down><end>;<C-o>``
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+vnoremap <C-d> <C-d>zz
+vnoremap <C-u> <C-u>zz
