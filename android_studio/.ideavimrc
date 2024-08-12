@@ -25,3 +25,6 @@ nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 vnoremap <C-d> <C-d>zz
 vnoremap <C-u> <C-u>zz
+
+
+set clipboard=unnamedplus
