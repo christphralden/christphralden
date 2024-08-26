@@ -23,7 +23,7 @@ mason_lspconfig.setup({
 		"cssmodules_ls",
 		"jsonls",
 		"jdtls",
-		"intelephense",
+		-- "intelephense",
 		"gopls",
 		"tsserver",
 		"html",
@@ -31,6 +31,8 @@ mason_lspconfig.setup({
 		"tailwindcss",
 		"lua_ls",
 		"emmet_ls",
+		"kotlin_language_server",
+		"astro",
 	},
 	automatic_installation = true,
 })

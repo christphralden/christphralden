@@ -74,12 +74,11 @@ lspconfig["cssls"].setup({
 })
 
 -- configure tailwindcss server
-lspconfig["tailwindcss"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+-- lspconfig["tailwindcss"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
 
--- configure emmet language server
 lspconfig["emmet_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -107,19 +106,19 @@ lspconfig["lua_ls"].setup({
 	},
 })
 
-lspconfig["intelephense"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	filetypes = { "php", "blade" },
-	settings = {
-		intelephense = {
-			files = {
-				associations = { "*.php", "*.blade.php" }, -- Associating .blade.php files as well
-				maxSize = 5000000,
-			},
-		},
-	},
-})
+-- lspconfig["intelephense"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- 	filetypes = { "php", "blade" },
+-- 	settings = {
+-- 		intelephense = {
+-- 			files = {
+-- 				associations = { "*.php", "*.blade.php" }, -- Associating .blade.php files as well
+-- 				maxSize = 5000000,
+-- 			},
+-- 		},
+-- 	},
+-- })
 
 lspconfig["gopls"].setup({
 	on_attach = on_attach,
@@ -137,6 +136,16 @@ lspconfig["gopls"].setup({
 })
 
 lspconfig["jdtls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- lspconfig["kotlin_language_server"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
+
+lspconfig["astro"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
