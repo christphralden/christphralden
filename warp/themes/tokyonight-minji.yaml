@@ -1,4 +1,4 @@
-name: Tokyo Night Transparent
+name: Tokyo Night Minji
 accent: "#7aa2f7" # Blue accent color from Tokyo Night
 background: "#1a1b26" # Background color from Tokyo Night
 details: darker
@@ -8,9 +8,9 @@ foreground: "#c0caf5" # Foreground color from Tokyo Night
 background_image:
   # the path is relative to ~/.warp/themes/
   # the full path to the picture is: ~/.warp/themes/warp.jpg
-  path: ./jackshit
+  path: ./minji-chosun.jpeg
   # the opacity value is required and can range from 0-100
-  opacity: 5
+  opacity: 10
 ############################################################### SEE ABOVE
 
 terminal_colors:
