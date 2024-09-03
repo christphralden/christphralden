@@ -4,17 +4,17 @@
 # 2. Dedicated spaces for workflows
 
 # Spaces:
-# Q-R : Primary Monitor (Main Work)
-# 1-4 : Secondary Monitor (Utils)
+# Y-O: Primary Monitor (Main Work)
+# B-M : Secondary Monitor (Utils)
 
-# Q : Browser
-# W : Terminal
-# E : 
-# R : Frequent shit to visit (DB, API, Extra terminal, Monitoring, Some shit)
+# Y : Browser
+# U : Terminal
+# I : 
+# O : Frequent shit to visit (DB, API, Extra terminal, Monitoring, Some shit)
 
-# 1 : Socials and music (Line, Apple/Spoti)
-# 2 : GPT
-# 3 : Notes
+# B : Socials and music (Line, Apple/Spoti)
+# N : GPT
+# M : Notes
 
 # You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
@@ -74,15 +74,14 @@ outer.right =      8
 
 
 [workspace-to-monitor-force-assignment]
-Q = 'primary'
-W = 'primary'
-E = 'primary'
-R = 'primary'
+Y = 'primary'
+U = 'primary'
+I = 'primary'
+O = 'primary'
 
-1 = 'secondary'
-2 = 'secondary'
-3 = 'secondary'
-4 = 'secondary'
+B = 'secondary'
+N = 'secondary'
+M = 'secondary'
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -136,16 +135,15 @@ alt-shift-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 # Primary monitor
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
+alt-y = 'workspace Y'
+alt-u = 'workspace U'
+alt-i = 'workspace I'
+alt-o = 'workspace O'
 
 # Secondary monitor
-alt-q = 'workspace Q'
-alt-w = 'workspace W'
-alt-e = 'workspace E'
-alt-r = 'workspace R'
+alt-b = 'workspace B'
+alt-n = 'workspace N'
+alt-m = 'workspace M'
 # alt-5 = 'workspace 5'
 # alt-6 = 'workspace 6'
 # alt-7 = 'workspace 7'
@@ -176,15 +174,14 @@ alt-r = 'workspace R'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 # Primary monitor
-alt-shift-1 = 'move-node-to-workspace 1'
-alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-y = 'move-node-to-workspace Y'
+alt-shift-u = 'move-node-to-workspace U'
+alt-shift-i = 'move-node-to-workspace I'
+alt-shift-o = 'move-node-to-workspace O'
 
-alt-shift-q = 'move-node-to-workspace Q'
-alt-shift-w = 'move-node-to-workspace W'
-alt-shift-e = 'move-node-to-workspace E'
-alt-shift-r = 'move-node-to-workspace R'
+alt-shift-b = 'move-node-to-workspace Q'
+alt-shift-n = 'move-node-to-workspace N'
+alt-shift-m = 'move-node-to-workspace m'
 
 # alt-shift-5 = 'move-node-to-workspace 5'
 # alt-shift-6 = 'move-node-to-workspace 6'
@@ -238,50 +235,48 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-[[on-window-detected]] # Browser - Q
+[[on-window-detected]] # Browser - Y
 if.app-id =  'company.thebrowser.Browser'
-run = 'move-node-to-workspace Q'
+run = 'move-node-to-workspace Y'
 
-[[on-window-detected]] # Browser - Q
+[[on-window-detected]] # Browser - Y
 if.app-id =  'com.google.Chrome'
-run = 'move-node-to-workspace Q'
+run = 'move-node-to-workspace Y'
 
-[[on-window-detected]] # Browser - Q
+[[on-window-detected]] # Browser - Y
 if.app-id =  'com.apple.Safari'
-run = 'move-node-to-workspace Q'
+run = 'move-node-to-workspace Y'
 
-[[on-window-detected]] # Terminal - W
+[[on-window-detected]] # Terminal - U
 if.app-id =  'dev.warp.Warp-Stable'
-run = 'move-node-to-workspace W'
+run = 'move-node-to-workspace U'
 
-[[on-window-detected]] # Finder - E
+[[on-window-detected]] # Finder - I
 if.app-id =  'com.apple.finder'
-run = 'move-node-to-workspace E'
+run = 'move-node-to-workspace I'
 
-[[on-window-detected]] # Line - 1
+[[on-window-detected]] # Line - B
 if.app-id =  'jp.naver.line.mac'
-run = 'move-node-to-workspace 1'
+run = 'move-node-to-workspace B'
 
-[[on-window-detected]] # Spotify - 1
+[[on-window-detected]] # Spotify - B
 if.app-id =  'com.spotify.client'
-run = 'move-node-to-workspace 1'
+run = 'move-node-to-workspace B'
 
-[[on-window-detected]] # Music - 1
+[[on-window-detected]] # Music - B
 if.app-id =  'com.apple.Music'
-run = 'move-node-to-workspace 1'
+run = 'move-node-to-workspace B'
 
-[[on-window-detected]] # Gpt - 2
+[[on-window-detected]] # Gpt - N
 if.app-id =  'com.openai.chat'
-run = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace N'
 
-[[on-window-detected]] # Obsidian - 3
+[[on-window-detected]] # Obsidian - M
 if.app-id =  'md.obsidian'
-run = 'move-node-to-workspace 3'
+run = 'move-node-to-workspace M'
 
-[[on-window-detected]] # Notion - 3
+[[on-window-detected]] # Notion - M
 if.app-id =  'notion.id'
-run = 'move-node-to-workspace 3'
-
-
+run = 'move-node-to-workspace M'
 
 
