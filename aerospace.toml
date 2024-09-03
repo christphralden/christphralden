@@ -4,16 +4,17 @@
 # 2. Dedicated spaces for workflows
 
 # Spaces:
-# 1-4 : Primary Monitor (Main Work)
-# Q-R : Secondary Monitor (Utils)
+# Q-R : Primary Monitor (Main Work)
+# 1-4 : Secondary Monitor (Utils)
 
-# 1 : Browser
-# 2 : Terminal
-# 3 : 
-# 4 : Frequent shit to visit (DB, API, Extra terminal, Monitoring, Some shit)
+# Q : Browser
+# W : Terminal
+# E : 
+# R : Frequent shit to visit (DB, API, Extra terminal, Monitoring, Some shit)
 
-# Q : Socials and music (Line, Apple/Spoti)
-# W : Notes
+# 1 : Socials and music (Line, Apple/Spoti)
+# 2 : GPT
+# 3 : Notes
 
 # You can use it to add commands that run after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command' to work
@@ -73,15 +74,15 @@ outer.right =      8
 
 
 [workspace-to-monitor-force-assignment]
-1 = 'primary'
-2 = 'primary'
-3 = 'primary'
-4 = 'primary'
+Q = 'primary'
+W = 'primary'
+E = 'primary'
+R = 'primary'
 
-Q = 'secondary'
-W = 'secondary'
-E = 'secondary'
-R = 'secondary'
+1 = 'secondary'
+2 = 'secondary'
+3 = 'secondary'
+4 = 'secondary'
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -227,7 +228,7 @@ alt-shift-semicolon = 'mode service'
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
-backspace = ['close-all-windows-but-current', 'mode main']
+# backspace = ['close-all-windows-but-current', 'mode main']
 
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 #s = ['layout sticky tiling', 'mode main']
@@ -237,45 +238,50 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-[[on-window-detected]] # Browser - 1
+[[on-window-detected]] # Browser - Q
 if.app-id =  'company.thebrowser.Browser'
-run = 'move-node-to-workspace 1'
+run = 'move-node-to-workspace Q'
 
-[[on-window-detected]] # Browser - 1
+[[on-window-detected]] # Browser - Q
 if.app-id =  'com.google.Chrome'
-run = 'move-node-to-workspace 1'
+run = 'move-node-to-workspace Q'
 
-
-[[on-window-detected]] # Browser - 1
+[[on-window-detected]] # Browser - Q
 if.app-id =  'com.apple.Safari'
+run = 'move-node-to-workspace Q'
+
+[[on-window-detected]] # Terminal - W
+if.app-id =  'dev.warp.Warp-Stable'
+run = 'move-node-to-workspace W'
+
+[[on-window-detected]] # Finder - E
+if.app-id =  'com.apple.finder'
+run = 'move-node-to-workspace E'
+
+[[on-window-detected]] # Line - 1
+if.app-id =  'jp.naver.line.mac'
 run = 'move-node-to-workspace 1'
 
-[[on-window-detected]] # Terminal - 2
-if.app-id =  'dev.warp.Warp-Stable'
+[[on-window-detected]] # Spotify - 1
+if.app-id =  'com.spotify.client'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]] # Music - 1
+if.app-id =  'com.apple.Music'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]] # Gpt - 2
+if.app-id =  'com.openai.chat'
 run = 'move-node-to-workspace 2'
 
-[[on-window-detected]] # Finder - 3
-if.app-id =  'com.apple.finder'
+[[on-window-detected]] # Obsidian - 3
+if.app-id =  'md.obsidian'
 run = 'move-node-to-workspace 3'
 
-[[on-window-detected]] # Line - Q
-if.app-id =  'jp.naver.line.mac'
-run = 'move-node-to-workspace Q'
-
-[[on-window-detected]] # Spotify - Q
-if.app-id =  'com.spotify.client'
-run = 'move-node-to-workspace Q'
-
-[[on-window-detected]] # Music - Q
-if.app-id =  'com.apple.Music'
-run = 'move-node-to-workspace Q'
-
-
-[[on-window-detected]] # Obsidian - W
-if.app-id =  'md.obsidian'
-run = 'move-node-to-workspace W'
-
-[[on-window-detected]] # Notion - W
+[[on-window-detected]] # Notion - 3
 if.app-id =  'notion.id'
-run = 'move-node-to-workspace W'
+run = 'move-node-to-workspace 3'
+
+
+
 
