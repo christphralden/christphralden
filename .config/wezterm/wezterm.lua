@@ -3,16 +3,19 @@ local wez = require("wezterm")
 local config = wez.config_builder()
 
 -- Font Options
+
 config.font = wez.font("MesloLGS Nerd Font Mono")
 config.font_size = 14
 
 -- General Options
+
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE" -- "TITLE", "TITLE | RESIZE", "NONE"
 config.debug_key_events = false
 config.adjust_window_size_when_changing_font_size = false
 
 -- Color options
+
 config.color_scheme = "tokyonight"
 
 config.colors = {
@@ -45,10 +48,48 @@ config.colors = {
 	},
 }
 
+-- Bacground options
+
+-- Theme color with background blur
+-- config.background = {
+-- 	{
+-- 		source = {
+-- 			Color = "#1a1b26",
+-- 		},
+-- 		width = "100%",
+-- 		height = "100%",
+-- 		opacity = 0.9,
+-- 	},
+-- }
+
+-- Dimmer for background
+
+-- local dimmer = {
+-- 	brightness = 0.1,
+-- }
+
+-- Picture as background
+-- config.background = {
+-- 	{
+-- 		source = {
+-- 			File = wez.config_dir .. "/backgrounds/chaeyoung-1.jpeg",
+-- 		},
+-- 		width = "Cover",
+-- 		height = "Cover",
+-- 		vertical_align = "Top",
+-- 		horizontal_align = "Left",
+-- 		repeat_x = "NoRepeat",
+-- 		repeat_y = "NoRepeat",
+-- 		opacity = 0.8,
+-- 		hsb = dimmer,
+-- 	},
+-- }
+
 -- Window options
+
 config.window_padding = {
 	left = 40,
-	right = 20,
+	right = 40,
 	top = 40,
 	bottom = 20,
 }

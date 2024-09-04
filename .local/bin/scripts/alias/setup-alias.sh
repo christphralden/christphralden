@@ -51,11 +51,15 @@ conf() {
             nvim ~/.config/nvim/
             ;;
         tmux)
-            nvim ~/.tmux.conf
+            nvim ~/.config/tmux/
             ;;
         scripts)
             nvim ~/.local/bin/scripts/
             ;;
+        wez)
+            nvim ~/.config/wezterm/
+            ;;
+
         *)
             echo "Unknown configuration command: $1"
             ;;
@@ -69,4 +73,5 @@ alias detach='tmux detach'
 alias tnew='tmux new -s'
 alias attach='tmux attach -t'
 alias tatt='tmux attach'
-alias lsal='bat ~/.local/bin/scripts/alias/.listalias'
+alias lsal='bat $HOME/.local/bin/scripts/alias/.listalias'
+alias copy_dotfiles='$HOME/.local/bin/scripts/dotfiles/copy.sh'

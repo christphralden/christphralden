@@ -7,10 +7,10 @@
 # Y-O: Primary Monitor (Main Work)
 # B-M : Secondary Monitor (Utils)
 
-# Y : Browser
-# U : Terminal
-# I : 
-# O : Frequent shit to visit (DB, API, Extra terminal, Monitoring, Some shit)
+# U : Browser
+# I : Terminal
+# O : 
+# P : Frequent shit to visit (DB, API, Extra terminal, Monitoring, Some shit)
 
 # B : Socials and music (Line, Apple/Spoti)
 # N : GPT
@@ -74,10 +74,10 @@ outer.right =      8
 
 
 [workspace-to-monitor-force-assignment]
-Y = 'primary'
 U = 'primary'
 I = 'primary'
 O = 'primary'
+P = 'primary'
 
 B = 'secondary'
 N = 'secondary'
@@ -135,10 +135,10 @@ alt-shift-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 # Primary monitor
-alt-y = 'workspace Y'
 alt-u = 'workspace U'
 alt-i = 'workspace I'
 alt-o = 'workspace O'
+alt-p = 'workspace P'
 
 # Secondary monitor
 alt-b = 'workspace B'
@@ -174,10 +174,10 @@ alt-m = 'workspace M'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 # Primary monitor
-alt-shift-y = 'move-node-to-workspace Y'
 alt-shift-u = 'move-node-to-workspace U'
 alt-shift-i = 'move-node-to-workspace I'
 alt-shift-o = 'move-node-to-workspace O'
+alt-shift-p = 'move-node-to-workspace P'
 
 alt-shift-b = 'move-node-to-workspace Q'
 alt-shift-n = 'move-node-to-workspace N'
@@ -235,25 +235,29 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-[[on-window-detected]] # Browser - Y
+[[on-window-detected]] # Browser - U
 if.app-id =  'company.thebrowser.Browser'
-run = 'move-node-to-workspace Y'
+run = 'move-node-to-workspace U'
 
-[[on-window-detected]] # Browser - Y
+[[on-window-detected]] # Browser - U
 if.app-id =  'com.google.Chrome'
-run = 'move-node-to-workspace Y'
+run = 'move-node-to-workspace U'
 
-[[on-window-detected]] # Browser - Y
+[[on-window-detected]] # Browser - U
 if.app-id =  'com.apple.Safari'
 run = 'move-node-to-workspace Y'
 
-[[on-window-detected]] # Terminal - U
+[[on-window-detected]] # Warp - I
 if.app-id =  'dev.warp.Warp-Stable'
-run = 'move-node-to-workspace U'
-
-[[on-window-detected]] # Finder - I
-if.app-id =  'com.apple.finder'
 run = 'move-node-to-workspace I'
+
+[[on-window-detected]] # Wez - I
+if.app-id =  'com.github.wez.wezterm'
+run = 'move-node-to-workspace I'
+
+[[on-window-detected]] # Finder - O
+if.app-id =  'com.apple.finder'
+run = 'move-node-to-workspace O'
 
 [[on-window-detected]] # Line - B
 if.app-id =  'jp.naver.line.mac'

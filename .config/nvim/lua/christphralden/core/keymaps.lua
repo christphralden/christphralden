@@ -61,3 +61,10 @@ keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("v", "<C-d>", "<C-d>zz")
 keymap.set("v", "<C-u>", "<C-u>zz")
+
+-- indentation
+keymap.set("n", ">", ">>")
+keymap.set("n", "<", "<<")
+
+-- save
+keymap.set("n", "<leader>s", ":wa<CR>")

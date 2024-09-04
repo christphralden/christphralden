@@ -48,6 +48,7 @@ transparent.setup({
 		"LualineInactive",
 	},
 	extra_groups = { -- table: additional groups that should be cleared
+		"NormalFloat",
 		"NvimTree",
 		"NvimTreeNormal",
 		"NvimTreeVertSplit",
@@ -56,4 +57,5 @@ transparent.setup({
 		"LuaLine",
 	},
 	exclude_groups = {}, -- table: groups you don't want to clear
+	on_clear = function() end,
 })
