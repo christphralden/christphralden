@@ -2,17 +2,18 @@ local wez = require("wezterm")
 
 local config = wez.config_builder()
 
--- Font Options
-
-config.font = wez.font("MesloLGS Nerd Font Mono")
-config.font_size = 14
-
 -- General Options
 
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE" -- "TITLE", "TITLE | RESIZE", "NONE"
 config.debug_key_events = false
 config.adjust_window_size_when_changing_font_size = false
+config.animation_fps = 1
+
+-- Font Options
+
+config.font = wez.font("MesloLGS Nerd Font Mono")
+config.font_size = 14
 
 -- Color options
 
@@ -51,24 +52,26 @@ config.colors = {
 -- Bacground options
 
 -- Theme color with background blur
--- config.background = {
--- 	{
--- 		source = {
--- 			Color = "#1a1b26",
--- 		},
--- 		width = "100%",
--- 		height = "100%",
--- 		opacity = 0.9,
--- 	},
--- }
+
+config.background = {
+	{
+		source = {
+			Color = "#1a1b26",
+		},
+		width = "100%",
+		height = "100%",
+		opacity = 0.9,
+	},
+}
 
 -- Dimmer for background
 
 -- local dimmer = {
--- 	brightness = 0.1,
+-- 	brightness = 0.05,
 -- }
 
 -- Picture as background
+--
 -- config.background = {
 -- 	{
 -- 		source = {
@@ -76,11 +79,11 @@ config.colors = {
 -- 		},
 -- 		width = "Cover",
 -- 		height = "Cover",
--- 		vertical_align = "Top",
--- 		horizontal_align = "Left",
+-- 		vertical_align = "Middle",
+-- 		horizontal_align = "Center",
 -- 		repeat_x = "NoRepeat",
 -- 		repeat_y = "NoRepeat",
--- 		opacity = 0.8,
+-- 		opacity = 0.9,
 -- 		hsb = dimmer,
 -- 	},
 -- }
@@ -94,7 +97,7 @@ config.window_padding = {
 	bottom = 20,
 }
 
-config.window_background_opacity = 0.8
+config.window_background_opacity = 0
 config.macos_window_background_blur = 15
 config.native_macos_fullscreen_mode = false
 config.window_background_image = ""
