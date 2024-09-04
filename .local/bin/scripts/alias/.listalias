@@ -1,0 +1,33 @@
+# Utilities
+
+ls = 'lsd -hA --group-dirs first'
+tree = 'tree -a -L 4 -h -f'
+ip = 'ipconfig getifaddr en0'
+
+# Tmux
+detach = 'tmux detach'
+tnew = 'tmux new -s'
+attach = 'tmux attach -t'
+tatt = 'tmux attach'
+
+# Aliases
+lsal = 'bat ~/.local/bin/scripts/alias/.listalias'
+
+
+# Prefixed Commands
+git:
+  - clean
+  - nuke
+
+docker:
+  - clean
+  - rmi-clean
+  - builder-prune
+
+conf:
+  - zshrc
+  - warp
+  - aerospace
+  - nvim
+  - tmux
+  - scripts

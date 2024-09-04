@@ -106,20 +106,35 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="lsd -hA --group-dirs first"
-alias tree="tree -a -L 4 -h -f"
-alias ip="ipconfig getifaddr en0"
-alias detach="tmux detach"
-alias tnew='tmux new -s'
-alias attach='tmux attach -t'
-alias gitnuke='git clean -df && git reset HEAD --hard'
+# alias ls="lsd -hA --group-dirs first"
+# alias tree="tree -a -L 4 -h -f"
+# alias ip="ipconfig getifaddr en0"
+# alias detach="tmux detach"
+# alias tnew='tmux new -s'
+# alias attach='tmux attach -t'
+# alias tatt='tmux attach'
+# alias gitnuke='git clean -df && git reset HEAD --hard'
+# alias "clean dockerimage"='docker rmi $(docker images -a --filter=dangling=true -q)'
+# alias "clean docker"='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'
+# alias "fuck docker"='docker builder prune'
+#
+# # Config files alias
+#
+# alias "conf zshrc"="nvim ~/.zshrc"
+# alias "conf warp"="nvim ~/.warp/"
+# alias "conf aerospace"="nvim ~/.config/aerospace/"
+# alias "conf nvim"="nvim ~/.config/nvim/"
+# alias "conf tmux"="nvim ~/.tmux.conf"
+# alias "conf scripts"="nvim ~/.local/bin/scripts/"
+# alias lsal="bat ~/.local/bin/scripts/alias/.listalias"
 
 export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-source "$HOME/Library/Application Support/org.dfinity.dfx/env"
 export FZF_DEFAULT_OPTS="--height 100% --layout=reverse --border"
 export PATH="$PATH:/Users/christopheralden/fvm/versions/stable/bin"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
+
+export PATH="$HOME/.local/bin/scripts:$PATH"
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -135,10 +150,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-
-function al232(){
-    python3 documents/developer/action_scripts/run-messier/runmessier.py
-}
 
 sd() {
   local dir
@@ -165,8 +176,13 @@ fop() {
   fi
 }
 
+source "$HOME/.local/bin/scripts/alias/setup-alias.sh"
+source "$HOME/Library/Application Support/org.dfinity.dfx/env"
+
+
 eval "$(fzf --zsh)"
 eval "$(thefuck --alias)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
