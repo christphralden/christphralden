@@ -9,6 +9,8 @@ config.window_decorations = "RESIZE" -- "TITLE", "TITLE | RESIZE", "NONE"
 config.debug_key_events = false
 config.adjust_window_size_when_changing_font_size = false
 config.animation_fps = 1
+-- config.max_fps = 120
+config.scrollback_lines = 2000
 
 -- Font Options
 
@@ -100,6 +102,5 @@ config.window_padding = {
 config.window_background_opacity = 0
 config.macos_window_background_blur = 15
 config.native_macos_fullscreen_mode = false
-config.window_background_image = ""
 
 return config
