@@ -12,12 +12,33 @@ vim.cmd([[ highlight NvimTreeIndentMarker guifg=#bb9af7]])
 
 nvimtree.setup({
 	-- change folder arrow icons
+	view = {
+		side = "right",
+	},
+	filters = {
+		custom = { "\\.git$", "\\.pyc$", "__pycache__" },
+	},
 	renderer = {
+		indent_markers = {
+			enable = false,
+			inline_arrows = true,
+			icons = {
+				corner = "└",
+				edge = "│",
+				item = "│",
+				bottom = "─",
+				none = " ",
+			},
+		},
 		icons = {
-			glyphs = {
+			web_devicons = {
+				file = {
+					enable = true,
+					color = true,
+				},
 				folder = {
-					arrow_closed = "", -- arrow when folder is closed
-					arrow_open = "", -- arrow when folder is open
+					enable = false,
+					color = true,
 				},
 			},
 		},
@@ -32,7 +53,7 @@ nvimtree.setup({
 			},
 		},
 	},
-	-- 	git = {
-	-- 		ignore = false,
-	-- 	},
+	git = {
+		ignore = false,
+	},
 })

@@ -27,8 +27,6 @@ transparent.setup({
 		"SignColumn",
 		"CursorLine",
 		"CursorLineNr",
-		"StatusLine",
-		"StatusLineNC",
 		"EndOfBuffer",
 		"TabLine",
 		"TabLineFill",
@@ -40,12 +38,8 @@ transparent.setup({
 		"Folded",
 		"FoldColumn",
 		"CursorColumn",
-		"LualineNormal",
-		"LualineInsert",
-		"LualineVisual",
-		"LualineReplace",
-		"LualineCommand",
-		"LualineInactive",
+		"StatusLine",
+		"StatusLineNC",
 	},
 	extra_groups = { -- table: additional groups that should be cleared
 		"NormalFloat",
@@ -54,8 +48,15 @@ transparent.setup({
 		"NvimTreeVertSplit",
 		"NvimTreeStatusLine",
 		"NvimTreeStatusLineNC",
-		"LuaLine",
 	},
-	exclude_groups = {}, -- table: groups you don't want to clear
-	on_clear = function() end,
+	exclude_groups = {
+		"LuaLine",
+		"LualineNormal",
+		"LualineInsert",
+		"LualineVisual",
+		"LualineReplace",
+		"LualineCommand",
+		"LualineInactive",
+	}, -- table: groups you don't want to clear
+	-- on_clear = function() end,
 })

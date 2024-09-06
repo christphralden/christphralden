@@ -13,7 +13,7 @@ require("tokyonight").setup({
 	styles = {
 		comments = { italic = true },
 		keywords = { italic = true },
-		functions = {},
+		functions = { bold = true },
 		variables = {},
 		sidebars = "transparent", -- style for sidebars, see below
 		floats = "transparent", -- style for floating windows

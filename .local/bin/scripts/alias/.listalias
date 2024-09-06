@@ -9,15 +9,14 @@ detach = 'tmux detach'
 tnew = 'tmux new -s'
 attach = 'tmux attach -t'
 tatt = 'tmux attach'
+gitnuke="git clean -df && git reset HEAD --hard"
+
+
 
 # Aliases
 lsal = 'bat ~/.local/bin/scripts/alias/.listalias'
 copy_dotfiles = './.local/bin/scripts/dotfiles/copy.sh'
-
-# Prefixed Commands
-git:
-  - clean
-  - nuke
+yy = yazi
 
 docker:
   - clean

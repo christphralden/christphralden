@@ -151,30 +151,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 
-sd() {
-  local dir
-  dir=$(fzf --select-1 --exit-0 --preview 'tree -C {} | head -200')
-  if [[ $? -eq 0 && -n "$dir" ]]; then
-    if [[ -d "$dir" ]]; then
-      cd "$dir"
-    else
-      cd "$(dirname "$dir")"
-    fi
-  fi
-}
 
-fop() {
-  local file
-  file=$(fzf --select-1 --exit-0 --preview 'cat {} | head -200')
-  if [[ $? -ne 0 ]]; then
-    return
-  fi
-  if [[ -n "$file" ]]; then
-    local dir
-    dir=$(dirname "$file")
-    open -a Finder "$dir"
-  fi
-}
 
 source "$HOME/.local/bin/scripts/alias/setup-alias.sh"
 source "$HOME/Library/Application Support/org.dfinity.dfx/env"
@@ -185,4 +162,6 @@ eval "$(thefuck --alias)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
 

@@ -9,7 +9,7 @@ config.window_decorations = "RESIZE" -- "TITLE", "TITLE | RESIZE", "NONE"
 config.debug_key_events = false
 config.adjust_window_size_when_changing_font_size = false
 config.animation_fps = 1
--- config.max_fps = 120
+config.max_fps = 30
 config.scrollback_lines = 2000
 
 -- Font Options
@@ -55,40 +55,41 @@ config.colors = {
 
 -- Theme color with background blur
 
-config.background = {
-	{
-		source = {
-			Color = "#1a1b26",
-		},
-		width = "100%",
-		height = "100%",
-		opacity = 0.9,
-	},
-}
-
--- Dimmer for background
-
--- local dimmer = {
--- 	brightness = 0.05,
--- }
-
--- Picture as background
---
 -- config.background = {
 -- 	{
 -- 		source = {
--- 			File = wez.config_dir .. "/backgrounds/chaeyoung-1.jpeg",
+-- 			Color = "#1a1b26",
 -- 		},
--- 		width = "Cover",
--- 		height = "Cover",
--- 		vertical_align = "Middle",
--- 		horizontal_align = "Center",
--- 		repeat_x = "NoRepeat",
--- 		repeat_y = "NoRepeat",
+-- 		width = "100%",
+-- 		height = "100%",
 -- 		opacity = 0.9,
--- 		hsb = dimmer,
 -- 	},
 -- }
+
+-- Dimmer for background
+
+local dimmer = {
+	brightness = 0.05,
+	saturation = 0.75,
+}
+
+-- Picture as background
+--
+config.background = {
+	{
+		source = {
+			File = wez.config_dir .. "/backgrounds/chaeyoung-1.jpeg",
+		},
+		width = "Cover",
+		height = "Cover",
+		vertical_align = "Middle",
+		horizontal_align = "Center",
+		repeat_x = "NoRepeat",
+		repeat_y = "NoRepeat",
+		opacity = 1,
+		hsb = dimmer,
+	},
+}
 
 -- Window options
 
@@ -99,8 +100,8 @@ config.window_padding = {
 	bottom = 20,
 }
 
-config.window_background_opacity = 0
-config.macos_window_background_blur = 15
+-- config.window_background_opacity = 0
+-- config.macos_window_background_blur = 15
 config.native_macos_fullscreen_mode = false
 
 return config

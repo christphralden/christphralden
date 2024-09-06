@@ -1,21 +1,5 @@
 #!/usr/bin/env zsh
 
-git() {
-    case "$1" in
-        clean)
-            shift
-            git clean -df "$@"
-            ;;
-        nuke)
-            shift
-            git clean -df && git reset HEAD --hard
-            ;;
-        *)
-            command git "$@"
-            ;;
-    esac
-}
-
 docker() {
     case "$1" in
         clean)
@@ -39,27 +23,26 @@ docker() {
 conf() {
     case "$1" in
         zshrc)
-            nvim ~/.zshrc
+            cd ~ && nvim .zshrc
             ;;
         warp)
-            nvim ~/.warp/
+            cd ~/.warp/ && nvim
             ;;
         aerospace)
-            nvim ~/.config/aerospace/
+            cd ~/.config/aerospace/ && nvim
             ;;
         nvim)
-            nvim ~/.config/nvim/
+            cd ~/.config/nvim/ && nvim
             ;;
         tmux)
-            nvim ~/.config/tmux/
+            cd ~/.config/tmux/ && nvim
             ;;
         scripts)
-            nvim ~/.local/bin/scripts/
+            cd ~/.local/bin/scripts/ && nvim
             ;;
         wez)
-            nvim ~/.config/wezterm/
+            cd ~/.config/wezterm/ && nvim
             ;;
-
         *)
             echo "Unknown configuration command: $1"
             ;;
@@ -75,3 +58,39 @@ alias attach='tmux attach -t'
 alias tatt='tmux attach'
 alias lsal='bat $HOME/.local/bin/scripts/alias/.listalias'
 alias copy_dotfiles='$HOME/.local/bin/scripts/dotfiles/copy.sh'
+alias y='yazi'
+alias gitnuke="git clean -df && git reset HEAD --hard"
+
+sd() {
+  local dir
+  dir=$(fzf --select-1 --exit-0 --preview 'tree -C {} | head -200')
+  if [[ $? -eq 0 && -n "$dir" ]]; then
+    if [[ -d "$dir" ]]; then
+      cd "$dir"
+    else
+      cd "$(dirname "$dir")"
+    fi
+  fi
+}
+
+fop() {
+  local file
+  file=$(fzf --select-1 --exit-0 --preview 'cat {} | head -200')
+  if [[ $? -ne 0 ]]; then
+    return
+  fi
+  if [[ -n "$file" ]]; then
+    local dir
+    dir=$(dirname "$file")
+    open -a Finder "$dir"
+  fi
+}
+
+yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}

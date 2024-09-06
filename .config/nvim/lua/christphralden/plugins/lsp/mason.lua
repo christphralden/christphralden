@@ -42,6 +42,9 @@ mason_null_ls.setup({
 		"prettier", -- ts/js formatter
 		"stylua", -- lua formatter
 		"eslint_d", -- ts/js linter
+		"black", -- python formatter
+		-- "gofmt", -- golang formatter
+		-- "clang-format", -- c/c++ formatter
 	},
 	automatic_installation = true,
 })
