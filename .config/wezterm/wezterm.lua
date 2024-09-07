@@ -51,31 +51,14 @@ config.colors = {
 	},
 }
 
--- Bacground options
-
--- Theme color with background blur
-
--- config.background = {
--- 	{
--- 		source = {
--- 			Color = "#1a1b26",
--- 		},
--- 		width = "100%",
--- 		height = "100%",
--- 		opacity = 0.9,
--- 	},
--- }
-
 -- Dimmer for background
-
 local dimmer = {
 	brightness = 0.05,
 	saturation = 0.75,
 }
 
--- Picture as background
---
-config.background = {
+-- Define the two background options (wallpaper and transparent)
+local background_with_wallpaper = {
 	{
 		source = {
 			File = wez.config_dir .. "/backgrounds/chaeyoung-1.jpeg",
@@ -91,6 +74,48 @@ config.background = {
 	},
 }
 
+local transparent_background = {
+	{
+		source = {
+			Color = "#1a1b26",
+		},
+		width = "100%",
+		height = "100%",
+		opacity = 0.9,
+	},
+}
+
+-- Initialize with the wallpaper by default
+config.background = background_with_wallpaper
+
+-- Toggle function between the two backgrounds
+local current_background = "wallpaper"
+
+wez.on("toggle-background", function(window)
+	if current_background == "wallpaper" then
+		-- Switch to transparent background
+		config.background = transparent_background
+		current_background = "transparent"
+		config.window_background_opacity = 0
+		config.macos_window_background_blur = 15
+	else
+		-- Switch to wallpaper
+		config.background = background_with_wallpaper
+		current_background = "wallpaper"
+		config.window_background_opacity = 1
+		config.macos_window_background_blur = 0
+	end
+	window:set_config_overrides(config)
+end)
+
+config.keys = {
+	{
+		key = "b",
+		mods = "CTRL|SHIFT",
+		action = wez.action.EmitEvent("toggle-background"),
+	},
+}
+
 -- Window options
 
 config.window_padding = {
@@ -100,8 +125,6 @@ config.window_padding = {
 	bottom = 20,
 }
 
--- config.window_background_opacity = 0
--- config.macos_window_background_blur = 15
 config.native_macos_fullscreen_mode = false
 
 return config

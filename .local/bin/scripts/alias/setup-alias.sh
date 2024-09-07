@@ -49,17 +49,27 @@ conf() {
     esac
 }
 
+# utilities
 alias ls='lsd -hA --group-dirs first'
 alias tree='tree -a -L 4 -h -f'
 alias ip='ipconfig getifaddr en0'
+
+# tmux
 alias detach='tmux detach'
 alias tnew='tmux new -s'
 alias attach='tmux attach -t'
 alias tatt='tmux attach'
+
+# custom
 alias lsal='bat $HOME/.local/bin/scripts/alias/.listalias'
 alias copy_dotfiles='$HOME/.local/bin/scripts/dotfiles/copy.sh'
-alias y='yazi'
 alias gitnuke="git clean -df && git reset HEAD --hard"
+
+# macos
+alias menubar='$HOME/.local/bin/scripts/macos/menubar.scpt'
+alias dock='$HOME/.local/bin/scripts/macos/dock.sh'
+alias wallpaper='$HOME/.local/bin/scripts/macos/wallpaper.sh'
+alias zen='$HOME/.local/bin/scripts/macos/zen.sh'
 
 sd() {
   local dir
