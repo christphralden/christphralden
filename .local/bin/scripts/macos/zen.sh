@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# This enables rawdogging development. No AI, No LSP, No mouse, No way to tell time
+# Purely fueled by coffee and spotify
+# 
+# or Zen mode basically
+
 zen_state_file="/tmp/zen_mode_enabled"
 default_wallpaper="$HOME/Pictures/IU Wallpaper 1.jpg"
 zen_wallpaper="$HOME/Pictures/black.png"

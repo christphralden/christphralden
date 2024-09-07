@@ -97,7 +97,7 @@ wez.on("toggle-background", function(window)
 		config.background = transparent_background
 		current_background = "transparent"
 		config.window_background_opacity = 0
-		config.macos_window_background_blur = 15
+		config.macos_window_background_blur = 30
 	else
 		-- Switch to wallpaper
 		config.background = background_with_wallpaper
