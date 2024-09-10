@@ -23,9 +23,10 @@ mason_lspconfig.setup({
 		"cssmodules_ls",
 		"jsonls",
 		"jdtls",
+		"pyright",
 		-- "intelephense",
 		"gopls",
-		"tsserver",
+		"ts_ls",
 		"html",
 		"cssls",
 		"tailwindcss",
@@ -43,8 +44,8 @@ mason_null_ls.setup({
 		"stylua", -- lua formatter
 		"eslint_d", -- ts/js linter
 		"black", -- python formatter
-		-- "gofmt", -- golang formatter
-		-- "clang-format", -- c/c++ formatter
+		"gofmt", -- golang formatter
+		"clang-format", -- c/c++ formatter
 	},
 	automatic_installation = true,
 })

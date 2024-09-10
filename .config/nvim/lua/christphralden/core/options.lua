@@ -12,7 +12,12 @@ opt.autoindent = true
 
 -- line wrap
 opt.wrap = false
-
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "text", "markdown", "gitcommit" },
+	callback = function()
+		opt.wrap = true
+	end,
+})
 -- search setting
 opt.ignorecase = true
 opt.smartcase = true

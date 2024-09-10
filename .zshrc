@@ -159,9 +159,11 @@ source "$HOME/Library/Application Support/org.dfinity.dfx/env"
 
 eval "$(fzf --zsh)"
 eval "$(thefuck --alias)"
+eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
 
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"

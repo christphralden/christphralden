@@ -134,8 +134,19 @@ return packer.startup(function(use)
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
-	--transparent background
+	-- transparent background
 	use("xiyaowong/transparent.nvim")
+
+	-- markdown
+	use({
+		"MeanderingProgrammer/render-markdown.nvim",
+		-- requires = { 'echasnovski/mini.nvim', opt = true }, -- if you use the mini.nvim suite
+		-- requires = { 'echasnovski/mini.icons', opt = true }, -- if you use standalone mini plugins
+		requires = { "nvim-tree/nvim-web-devicons", opt = true }, -- if you prefer nvim-web-devicons
+		config = function()
+			require("render-markdown").setup({})
+		end,
+	})
 
 	if packer_bootstrap then
 		require("packer").sync()
