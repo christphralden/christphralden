@@ -15,7 +15,7 @@ config.scrollback_lines = 2000
 -- Font Options
 
 config.font = wez.font("MesloLGS Nerd Font Mono")
-config.font_size = 14
+config.font_size = 16
 
 -- Color options
 
@@ -83,7 +83,7 @@ local transparent_background = {
 		},
 		width = "100%",
 		height = "100%",
-		opacity = 0.9,
+		opacity = 0.75,
 	},
 }
 
@@ -119,7 +119,6 @@ config.keys = {
 }
 
 -- Window options
-
 config.window_padding = {
 	left = 40,
 	right = 40,

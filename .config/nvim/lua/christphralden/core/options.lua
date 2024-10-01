@@ -37,6 +37,9 @@ opt.clipboard:append("unnamedplus")
 opt.splitright = true
 opt.splitbelow = true
 
+-- no hl
+opt.hlsearch = false
+
 opt.iskeyword:append("-")
 
 vim.cmd([[
@@ -56,3 +59,10 @@ vim.cmd([[
     highlight LualineCommand guibg=NONE ctermbg=NONE
     highlight LualineInactive guibg=NONE ctermbg=NONE
 ]])
+
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+
+vim.api.nvim_create_user_command("Wq", "wq", {})
+vim.api.nvim_create_user_command("Wqa", "wqa", {})
+vim.api.nvim_create_user_command("Wa", "wa", {})

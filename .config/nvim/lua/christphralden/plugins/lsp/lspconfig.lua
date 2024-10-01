@@ -67,6 +67,10 @@ lspconfig["html"].setup({
 -- 	},
 -- })
 
+lspconfig["ts_ls"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 -- configure css server
 lspconfig["cssls"].setup({
 	capabilities = capabilities,
@@ -151,11 +155,6 @@ lspconfig["pyright"].setup({
 })
 
 lspconfig["astro"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-
-lspconfig["ts_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
