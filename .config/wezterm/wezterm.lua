@@ -11,6 +11,8 @@ config.adjust_window_size_when_changing_font_size = false
 config.animation_fps = 1
 config.max_fps = 30
 config.scrollback_lines = 2000
+config.initial_rows = 48
+config.initial_cols = 160
 
 -- Font Options
 
@@ -79,11 +81,11 @@ local background_with_wallpaper = {
 local transparent_background = {
 	{
 		source = {
-			Color = "#1a1b26",
+			Color = "#0a0a0a",
 		},
 		width = "100%",
 		height = "100%",
-		opacity = 0.75,
+		opacity = 0.8,
 	},
 }
 

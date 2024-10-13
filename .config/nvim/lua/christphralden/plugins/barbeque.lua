@@ -5,6 +5,7 @@ end
 
 barbeque.setup({
 	options = {
-		theme = "tokyonight",
+		-- theme = "tokyonight",
+		theme = "rose-pine",
 	},
 })

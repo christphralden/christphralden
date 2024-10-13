@@ -40,7 +40,14 @@ keymap.set("n", "<C-i>", "<C-o>")
 keymap.set("n", "<leader>t", ":TransparentToggle<CR>")
 
 -- my bindings
-keymap.set("n", "<leader>cp", ":w<CR>:!clang++ %:p -o %:p:r && %:p:r<CR>", { noremap = true, silent = true })
+-- keymap.set("n", "<leader>cp", ":w<CR>:!clang++ %:p -o %:p:r && %:p:r<CR>", { noremap = true, silent = true })
+
+keymap.set(
+	"n",
+	"<leader>cp",
+	":w<CR>:!clang++ %:p -o %:p:r<CR>:!tmux new-window 'bash -c \"%:p:r; echo; echo Press Enter to exit...; read\"'<CR>",
+	{ noremap = true, silent = true }
+)
 keymap.set("n", "e", "l") -- shit is just too goofy
 keymap.set("v", "e", "l") -- shit is just too goofy
 keymap.set("n", "w", "h")

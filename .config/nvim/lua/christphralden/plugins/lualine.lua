@@ -51,22 +51,23 @@ if not status then
 	return
 end
 
--- Load the original tokyonight theme from lualine
-local lualine_tokyonight = require("lualine.themes.tokyonight")
+-- Load the original theme from lualine
+-- local lualine_theme = require("lualine.themes.tokyonight")
+local lualine_theme = require("lualine.themes.rose-pine")
 
--- Apply the custom colors to the lualine_tokyonight theme
+-- Apply the custom colors to the theme
 local custom_theme = M.theme()
 
 for mode, sections in pairs(custom_theme) do
 	for section, value in pairs(sections) do
-		lualine_tokyonight[mode][section] = value
+		lualine_theme[mode][section] = value
 	end
 end
 
--- Configure lualine with modified tokyonight theme
+-- Configure lualine with modified theme
 lualine.setup({
 	options = {
-		theme = lualine_tokyonight,
+		theme = lualine_theme,
 		component_separators = "|",
 		section_separators = "",
 		globalstatus = true,

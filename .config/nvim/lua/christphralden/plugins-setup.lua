@@ -30,7 +30,8 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- lua functions
 	use("bluz71/vim-nightfly-guicolors") -- colorscheme
 	use({
-		"folke/tokyonight.nvim",
+		-- "folke/tokyonight.nvim",
+		"rose-pine/neovim",
 		lazy = false,
 		priority = 1000,
 		opts = {},
@@ -135,7 +136,7 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
 	-- transparent background
-	use("xiyaowong/transparent.nvim")
+	-- use("xiyaowong/transparent.nvim")
 
 	-- markdown
 	use({
