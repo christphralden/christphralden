@@ -47,24 +47,24 @@ return packer.startup(function(use)
 	use("numToStr/Comment.nvim") -- comment shortcts [gcc, gc<number>j]
 
 	-- file explorer
-	use("nvim-tree/nvim-tree.lua") -- file explorer [<action> e]
+	-- use("nvim-tree/nvim-tree.lua") -- file explorer [<action> e]
 
 	-- icons
 	use("kyazdani42/nvim-web-devicons")
 
 	-- status bar
-	use("nvim-lualine/lualine.nvim")
-	use({
-		"utilyre/barbecue.nvim",
-		tag = "*",
-		requires = {
-			"SmiteshP/nvim-navic",
-			"nvim-tree/nvim-web-devicons", -- optional dependency
-		},
-		config = function()
-			require("barbecue").setup()
-		end,
-	})
+	-- use("nvim-lualine/lualine.nvim")
+	-- use({
+	-- 	"utilyre/barbecue.nvim",
+	-- 	tag = "*",
+	-- 	requires = {
+	-- 		"SmiteshP/nvim-navic",
+	-- 		"nvim-tree/nvim-web-devicons", -- optional dependency
+	-- 	},
+	-- 	config = function()
+	-- 		require("barbecue").setup()
+	-- 	end,
+	-- })
 
 	-- fuzzy finding
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- better sorting performance
@@ -76,6 +76,7 @@ return packer.startup(function(use)
 	use("hrsh7th/cmp-path") -- source for file system paths
 	use("hrsh7th/cmp-nvim-lua") -- Lua source for nvim config
 	use("hrsh7th/cmp-cmdline")
+
 	-- snippets
 	use("L3MON4D3/LuaSnip") -- snippet engine
 	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
@@ -110,12 +111,12 @@ return packer.startup(function(use)
 	}) -- fucking astro
 
 	-- ui
-	use("stevearc/dressing.nvim")
+	-- use("stevearc/dressing.nvim")
 
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
 	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
-	use("jwalton512/vim-blade")
+	-- use("jwalton512/vim-blade") -- blade template
 
 	-- autosave
 

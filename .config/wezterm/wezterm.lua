@@ -21,35 +21,35 @@ config.font_size = 16
 
 -- Color options
 
-config.color_scheme = "tokyonight"
+config.color_scheme = "rose-pine"
 
 config.colors = {
-	foreground = "#c0caf5", -- Foreground color
-	background = "#1a1b26", -- Background color
-	cursor_bg = "#c0caf5", -- Cursor background color
-	cursor_border = "#c0caf5", -- Cursor border color
-	cursor_fg = "#1a1b26", -- Cursor foreground color
-	selection_bg = "#33467C", -- Selection background color
-	selection_fg = "#c0caf5", -- Selection foreground color
+	foreground = "#e0def4", -- Foreground color (Text)
+	background = "#232136", -- Background color
+	cursor_bg = "#e0def4", -- Cursor background color
+	cursor_border = "#e0def4", -- Cursor border color
+	cursor_fg = "#232136", -- Cursor foreground color
+	selection_bg = "#393552", -- Selection background color
+	selection_fg = "#e0def4", -- Selection foreground color
 	ansi = {
-		"#15161E", -- Black
-		"#f7768e", -- Red
-		"#9ece6a", -- Green
-		"#e0af68", -- Yellow
-		"#7aa2f7", -- Blue
-		"#bb9af7", -- Magenta
-		"#7dcfff", -- Cyan
-		"#a9b1d6", -- White
+		"#393552", -- Black
+		"#eb6f92", -- Red
+		"#9ccfd8", -- Green
+		"#f6c177", -- Yellow
+		"#3e8fb0", -- Blue
+		"#c4a7e7", -- Magenta
+		"#9ccfd8", -- Cyan
+		"#e0def4", -- White
 	},
 	brights = {
-		"#414868", -- Bright Black
-		"#f7768e", -- Bright Red
-		"#9ece6a", -- Bright Green
-		"#e0af68", -- Bright Yellow
-		"#7aa2f7", -- Bright Blue
-		"#bb9af7", -- Bright Magenta
-		"#7dcfff", -- Bright Cyan
-		"#c0caf5", -- Bright White
+		"#6e6a86", -- Bright Black
+		"#eb6f92", -- Bright Red
+		"#9ccfd8", -- Bright Green
+		"#f6c177", -- Bright Yellow
+		"#3e8fb0", -- Bright Blue
+		"#c4a7e7", -- Bright Magenta
+		"#9ccfd8", -- Bright Cyan
+		"#e0def4", -- Bright White
 	},
 }
 

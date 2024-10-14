@@ -25,19 +25,22 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --prevtab
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
 -- nvim tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+-- keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+
+-- netrw
+keymap.set("n", "<leader>e", ":Ex<CR>")
 
 -- telescope
-keymap.set("n", "<leader>j", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>u", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
+keymap.set("n", "<leader>j", ":Telescope find_files<CR>") -- find files within current working directory, respects .gitignore
+keymap.set("n", "<leader>u", ":Telescope live_grep<CR>") -- find string in current working directory as you type
+keymap.set("n", "<leader>fc", ":Telescope grep_string<CR>") -- find string under cursor in current working directory
+keymap.set("n", "<leader>fb", ":Telescope buffers<CR>") -- list open buffers in current neovim instance
+keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>") -- list available help tags
 keymap.set("n", "<C-o>", "<C-i>")
 keymap.set("n", "<C-i>", "<C-o>")
 
 -- transparent
-keymap.set("n", "<leader>t", ":TransparentToggle<CR>")
+-- keymap.set("n", "<leader>t", ":TransparentToggle<CR>")
 
 -- my bindings
 -- keymap.set("n", "<leader>cp", ":w<CR>:!clang++ %:p -o %:p:r && %:p:r<CR>", { noremap = true, silent = true })
@@ -75,3 +78,23 @@ keymap.set("n", "<", "<<")
 
 -- save
 keymap.set("n", "<leader>s", ":wa<CR>")
+
+-- utilities
+
+keymap.set("n", "<leader>ya", ":%y<CR>") -- yank all lines in buffer, cursor stays the same
+
+-- move lines up and down
+
+vim.keymap.set("n", "<Up>", ":m .-2<CR>==")
+vim.keymap.set("n", "<Down>", ":m .+1<CR>==")
+
+vim.keymap.set("v", "<Up>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<Down>", ":m '>+1<CR>gv=gv")
+
+-- centres search result
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("n", "Q", "<nop>") -- fuck Ex
+
+vim.keymap.set("n", "<leader>f", vim.lsp.buf.format) -- format code using lsp

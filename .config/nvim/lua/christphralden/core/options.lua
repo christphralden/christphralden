@@ -33,7 +33,7 @@ opt.backspace = "indent,eol,start"
 -- clipboard
 opt.clipboard:append("unnamedplus")
 
--- split widnwos
+-- split windows
 opt.splitright = true
 opt.splitbelow = true
 
@@ -41,6 +41,12 @@ opt.splitbelow = true
 opt.hlsearch = false
 
 opt.iskeyword:append("-")
+
+-- netrw
+
+-- vim.g.netrw_liststyle = 3
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
 
 vim.cmd([[
     highlight Normal guibg=NONE ctermbg=NONE
@@ -66,3 +72,5 @@ vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 vim.api.nvim_create_user_command("Wq", "wq", {})
 vim.api.nvim_create_user_command("Wqa", "wqa", {})
 vim.api.nvim_create_user_command("Wa", "wa", {})
+
+-----

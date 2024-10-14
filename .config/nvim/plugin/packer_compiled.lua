@@ -89,12 +89,6 @@ _G.packer_plugins = {
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/ReplaceWithRegister",
     url = "https://github.com/vim-scripts/ReplaceWithRegister"
   },
-  ["barbecue.nvim"] = {
-    config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rbarbecue\frequire\0" },
-    loaded = true,
-    path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/barbecue.nvim",
-    url = "https://github.com/utilyre/barbecue.nvim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -125,11 +119,6 @@ _G.packer_plugins = {
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["dressing.nvim"] = {
-    loaded = true,
-    path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/dressing.nvim",
-    url = "https://github.com/stevearc/dressing.nvim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -154,11 +143,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/lspsaga.nvim",
     url = "https://github.com/glepnir/lspsaga.nvim"
-  },
-  ["lualine.nvim"] = {
-    loaded = true,
-    path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/lualine.nvim",
-    url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -199,16 +183,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-navic"] = {
-    loaded = true,
-    path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/nvim-navic",
-    url = "https://github.com/SmiteshP/nvim-navic"
-  },
-  ["nvim-tree.lua"] = {
-    loaded = true,
-    path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
-    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -261,11 +235,6 @@ _G.packer_plugins = {
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/typescript.nvim",
     url = "https://github.com/jose-elias-alvarez/typescript.nvim"
   },
-  ["vim-blade"] = {
-    loaded = true,
-    path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/vim-blade",
-    url = "https://github.com/jwalton512/vim-blade"
-  },
   ["vim-maximizer"] = {
     loaded = true,
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/vim-maximizer",
@@ -289,10 +258,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: barbecue.nvim
-time([[Config for barbecue.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rbarbecue\frequire\0", "config", "barbecue.nvim")
-time([[Config for barbecue.nvim]], false)
 -- Config for: render-markdown.nvim
 time([[Config for render-markdown.nvim]], true)
 try_loadstring("\27LJ\2\nA\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\20render-markdown\frequire\0", "config", "render-markdown.nvim")
