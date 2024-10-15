@@ -4,7 +4,7 @@ local keymap = vim.keymap
 
 keymap.set("i", "jk", "<ESC>")
 
-keymap.set("n", "<leader>nh", ":nohl<CR>")
+keymap.set("n", "<leader>nh", ":nohl<CR>") -- no highlight
 
 keymap.set("n", "x", '"_x"')
 
@@ -51,6 +51,8 @@ keymap.set(
 	":w<CR>:!clang++ %:p -o %:p:r<CR>:!tmux new-window 'bash -c \"%:p:r; echo; echo Press Enter to exit...; read\"'<CR>",
 	{ noremap = true, silent = true }
 )
+
+-- i will be bullied for this
 keymap.set("n", "e", "l") -- shit is just too goofy
 keymap.set("v", "e", "l") -- shit is just too goofy
 keymap.set("n", "w", "h")
@@ -59,6 +61,7 @@ keymap.set("n", "l", "w")
 keymap.set("v", "l", "w")
 keymap.set("n", "h", "b")
 keymap.set("v", "h", "b")
+
 keymap.set("v", "H", "^")
 keymap.set("n", "H", "^")
 keymap.set("v", "L", "$")
@@ -84,14 +87,12 @@ keymap.set("n", "<leader>s", ":wa<CR>")
 keymap.set("n", "<leader>ya", ":%y<CR>") -- yank all lines in buffer, cursor stays the same
 
 -- move lines up and down
-
 vim.keymap.set("n", "<Up>", ":m .-2<CR>==")
 vim.keymap.set("n", "<Down>", ":m .+1<CR>==")
-
 vim.keymap.set("v", "<Up>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<Down>", ":m '>+1<CR>gv=gv")
 
--- centres search result
+-- centers search result
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 

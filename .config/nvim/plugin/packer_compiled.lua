@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
-  LuaSnip = {
-    loaded = true,
-    path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/LuaSnip",
-    url = "https://github.com/L3MON4D3/LuaSnip"
-  },
   ReplaceWithRegister = {
     loaded = true,
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/ReplaceWithRegister",
@@ -113,11 +108,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
-  },
-  cmp_luasnip = {
-    loaded = true,
-    path = "/Users/christopheralden/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
-    url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
   ["friendly-snippets"] = {
     loaded = true,

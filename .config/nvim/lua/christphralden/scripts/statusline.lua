@@ -14,7 +14,6 @@ local function setup_highlights()
 end
 
 local function setup_statusline()
-	-- Construct the statusline in Lua to avoid issues with %{...}
 	local statusline = table.concat({
 		"%#StatuslineBranch#", -- Branch section color
 		" " .. git_branch() .. " ", -- Git branch symbol and name
@@ -28,11 +27,9 @@ local function setup_statusline()
 		vim.fn.getcwd(), -- Current working directory
 	})
 
-	-- Set the constructed statusline
 	vim.opt.statusline = statusline
 end
 
--- Initialize the highlights and statusline
 local function init()
 	setup_highlights()
 	setup_statusline()
