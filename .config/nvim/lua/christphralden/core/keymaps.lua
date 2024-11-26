@@ -29,6 +29,7 @@ keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
 -- netrw
 keymap.set("n", "<leader>e", ":Ex<CR>")
+keymap.set("n", "<leader>r", ":Rex<CR>")
 
 -- telescope
 keymap.set("n", "<leader>j", ":Telescope find_files<CR>") -- find files within current working directory, respects .gitignore
@@ -83,14 +84,13 @@ keymap.set("n", "<", "<<")
 keymap.set("n", "<leader>s", ":wa<CR>")
 
 -- utilities
-
 keymap.set("n", "<leader>ya", ":%y<CR>") -- yank all lines in buffer, cursor stays the same
 
 -- move lines up and down
-vim.keymap.set("n", "<Up>", ":m .-2<CR>==")
 vim.keymap.set("n", "<Down>", ":m .+1<CR>==")
 vim.keymap.set("v", "<Up>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<Down>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("n", "<Up>", ":m .-2<CR>==")
 
 -- centers search result
 vim.keymap.set("n", "n", "nzzzv")

@@ -8,7 +8,7 @@ if not cmp_nvim_lsp_status then
 	return
 end
 
--- local typescript_setup, typescript = pcall(require, "typescript")
+-- local typescript_setup, typescript = pcall(require, "typescript") -- Deprecated:
 -- if not typescript_setup then
 -- 	return
 -- end
@@ -75,6 +75,10 @@ lspconfig["ts_ls"].setup({
 lspconfig["cssls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	server = {
+		capabilities = capabilities,
+		on_attach = on_attach,
+	},
 })
 
 -- configure tailwindcss server
@@ -110,19 +114,19 @@ lspconfig["lua_ls"].setup({
 	},
 })
 
--- lspconfig["intelephense"].setup({
--- 	capabilities = capabilities,
--- 	on_attach = on_attach,
--- 	filetypes = { "php", "blade" },
--- 	settings = {
--- 		intelephense = {
--- 			files = {
--- 				associations = { "*.php", "*.blade.php" }, -- Associating .blade.php files as well
--- 				maxSize = 5000000,
--- 			},
--- 		},
--- 	},
--- })
+lspconfig["intelephense"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "php", "blade" },
+	settings = {
+		intelephense = {
+			files = {
+				associations = { "*.php", "*.blade.php" }, -- Associating .blade.php files as well
+				maxSize = 5000000,
+			},
+		},
+	},
+})
 
 lspconfig["gopls"].setup({
 	on_attach = on_attach,
@@ -155,6 +159,12 @@ lspconfig["pyright"].setup({
 })
 
 lspconfig["astro"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
+	cmd = { "astro-ls", "--stdio" }, -- Specify the command to start the server
+	filetypes = { "astro" }, -- Filetypes the server should attach to
+	root_dir = lspconfig.util.root_pattern("astro.config.mjs", "astro.config.ts", ".git"), -- Define root directory detection
+	capabilities = capabilities, -- Pass capabilities
+	on_attach = on_attach, -- Attach custom on_attach logic
+	init_options = {
+		typescript = {}, -- Ensure TypeScript support is enabled
+	},
 })
