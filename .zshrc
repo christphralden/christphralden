@@ -102,39 +102,16 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# alias ls="lsd -hA --group-dirs first"
-# alias tree="tree -a -L 4 -h -f"
-# alias ip="ipconfig getifaddr en0"
-# alias detach="tmux detach"
-# alias tnew='tmux new -s'
-# alias attach='tmux attach -t'
-# alias tatt='tmux attach'
-# alias gitnuke='git clean -df && git reset HEAD --hard'
-# alias "clean dockerimage"='docker rmi $(docker images -a --filter=dangling=true -q)'
-# alias "clean docker"='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'
-# alias "fuck docker"='docker builder prune'
-#
-# # Config files alias
-#
-# alias "conf zshrc"="nvim ~/.zshrc"
-# alias "conf warp"="nvim ~/.warp/"
-# alias "conf aerospace"="nvim ~/.config/aerospace/"
-# alias "conf nvim"="nvim ~/.config/nvim/"
-# alias "conf tmux"="nvim ~/.tmux.conf"
-# alias "conf scripts"="nvim ~/.local/bin/scripts/"
-# alias lsal="bat ~/.local/bin/scripts/alias/.listalias"
+
+export FZF_DEFAULT_OPTS="--height 100% --layout=reverse --border"
 
 export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-export FZF_DEFAULT_OPTS="--height 100% --layout=reverse --border"
 export PATH="$PATH:/Users/christopheralden/fvm/versions/stable/bin"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
-
 export PATH="$HOME/.local/bin/scripts:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -149,13 +126,8 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-
-
-
-source "$HOME/.local/bin/scripts/alias/setup-alias.sh"
 source "$HOME/Library/Application Support/org.dfinity.dfx/env"
-
+source "$HOME/.local/bin/scripts/alias/setup-alias.sh"
 
 eval "$(fzf --zsh)"
 eval "$(thefuck --alias)"

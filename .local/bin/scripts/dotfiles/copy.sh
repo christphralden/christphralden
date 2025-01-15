@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 run() {
-  local repo_root="$HOME/Dev/christphralden/"
-  local repo_local="$HOME/Dev/christphralden/.local/bin/"
-  local repo_config="$HOME/Dev/christphralden/.config/"
+  local repo_root="$HOME/Developer/christphralden/"
+  local repo_local="$HOME/Developer/christphralden/.local/bin/"
+  local repo_config="$HOME/Developer/christphralden/.config/"
   
   local files_to_copy_to_root=(
     "$HOME/.zshrc"
@@ -17,6 +17,7 @@ run() {
     "$HOME/.config/wezterm"
     "$HOME/.config/nvim"
     "$HOME/.config/aerospace"
+    "$HOME/.config/ghostty"
   )
 
   local files_to_copy_to_local=(

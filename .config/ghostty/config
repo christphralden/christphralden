@@ -1,0 +1,36 @@
+shell-integration = zsh
+shell-integration-features = no-cursor
+
+font-family = "MesloLGS Nerd Font Mono"
+theme = rose-pine
+font-size = 16
+
+# still in PR
+# background-image = ./backgrounds/chaeyoung-1.jpeg
+
+background = 0a0a0a
+foreground = e0def4
+background-opacity = 0.8
+background-blur-radius = 10
+selection-background = 393552
+selection-foreground = e0def4
+
+window-decoration = true
+macos-titlebar-style = hidden
+
+cursor-style = block
+cursor-style-blink = false
+
+window-padding-x = 20
+window-padding-y = 20
+
+
+#quick terminal
+quick-terminal-position = center
+quick-terminal-screen =  mouse
+quick-terminal-autohide = false
+quick-terminal-animation-duration = 0
+
+#keybinds
+
+keybind = global:cmd+\=toggle_quick_terminal

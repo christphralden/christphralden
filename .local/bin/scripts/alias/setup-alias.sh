@@ -1,25 +1,5 @@
 #!/usr/bin/env zsh
 
-docker() {
-    case "$1" in
-        clean)
-            shift
-            docker rm $(docker ps --filter=status=exited --filter=status=created -q)
-            ;;
-        rmi-clean)
-            shift
-            docker rmi $(docker images -a --filter=dangling=true -q)
-            ;;
-        builder-prune)
-            shift
-            docker builder prune
-            ;;
-        *)
-            command docker "$@"
-            ;;
-    esac
-}
-
 conf() {
     case "$1" in
         zshrc)
@@ -43,6 +23,9 @@ conf() {
         wez)
             cd ~/.config/wezterm/ && nvim
             ;;
+        ghostty)
+        cd ~/.config/ghostty/ && nvim
+        ;;
         *)
             echo "Unknown configuration command: $1"
             ;;
@@ -70,6 +53,10 @@ alias menubar='$HOME/.local/bin/scripts/macos/menubar.scpt'
 alias dock='$HOME/.local/bin/scripts/macos/dock.sh'
 alias wallpaper='$HOME/.local/bin/scripts/macos/wallpaper.sh'
 alias zen='$HOME/.local/bin/scripts/macos/zen.sh'
+
+alias unzipper='$HOME/.local/bin/scripts/utils/unzipper.sh'
+
+alias service="netstat -atp tcp"
 
 sd() {
   local dir

@@ -8,8 +8,8 @@ config.enable_tab_bar = false
 config.window_decorations = "RESIZE" -- "TITLE", "TITLE | RESIZE", "NONE"
 config.debug_key_events = false
 config.adjust_window_size_when_changing_font_size = false
-config.animation_fps = 1
-config.max_fps = 30
+config.animation_fps = 60
+config.max_fps = 120
 config.scrollback_lines = 2000
 config.initial_rows = 48
 config.initial_cols = 160
@@ -24,8 +24,6 @@ config.font_size = 16
 config.color_scheme = "rose-pine"
 
 config.colors = {
-	foreground = "#e0def4", -- Foreground color (Text)
-	background = "#232136", -- Background color
 	cursor_bg = "#e0def4", -- Cursor background color
 	cursor_border = "#e0def4", -- Cursor border color
 	cursor_fg = "#232136", -- Cursor foreground color
@@ -91,6 +89,9 @@ local transparent_background = {
 
 -- Initialize with the wallpaper by default
 config.background = background_with_wallpaper
+
+-- config.background = transparent_background
+-- config.macos_window_background_blur = 30
 
 -- Toggle function between the two backgrounds
 local current_background = "wallpaper"

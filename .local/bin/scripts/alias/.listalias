@@ -18,11 +18,6 @@ lsal = 'bat ~/.local/bin/scripts/alias/.listalias'
 copy_dotfiles = './.local/bin/scripts/dotfiles/copy.sh'
 yy = yazi
 
-docker:
-  - clean
-  - rmi-clean
-  - builder-prune
-
 conf:
   - zshrc
   - warp
@@ -30,3 +25,5 @@ conf:
   - nvim
   - tmux
   - scripts
+  - wez
+  - ghostty

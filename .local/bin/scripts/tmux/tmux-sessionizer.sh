@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 harpoon=(
-    "$HOME/dev/project1"
-    "$HOME/dev/project2"
-    "$HOME/dev/important"
+    "$HOME/Developer/project1"
+    "$HOME/Developer/project2"
+    "$HOME/Developer/important"
 )
 
-found_dirs=$(find ~/dev -mindepth 1 -maxdepth 3 -type d \( -name '.git' -o -name 'node_modules' \) -prune -o -print)
+found_dirs=$(find ~/Developer -mindepth 1 -maxdepth 3 -type d \( -name '.git' -o -name 'node_modules' \) -prune -o -print)
 
 all_dirs=$(printf "%s\n%s" "${harpoon[@]}" "$found_dirs" | awk '!x[$0]++')
 
@@ -24,7 +24,7 @@ if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
     exit 0
 fi
 
-if ! tmux has-session -t="$selected_name" 2>/dev/null; then
+if ! tmux has-session -t="$selected_name" 2>/Developer/null; then
     tmux new-session -ds "$selected_name" -c "$selected"
 fi
 

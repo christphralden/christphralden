@@ -1,4 +1,4 @@
-vim.cmd("source ~/.config/nvim/vim/startup.vim")
+-- vim.cmd("source ~/.config/nvim/vim/startup.vim")
 require("christphralden.plugins-setup")
 require("christphralden.plugins.comment")
 -- require("christphralden.plugins.nvim-tree")

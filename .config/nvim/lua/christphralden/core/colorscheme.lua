@@ -68,14 +68,14 @@ require("rose-pine").setup({
 
 	before_highlight = function(group, highlight, palette)
 		-- Disable all undercurls
-		-- if highlight.undercurl then
-		--     highlight.undercurl = false
-		-- end
-		--
+		if highlight.undercurl then
+			highlight.undercurl = false
+		end
+
 		-- Change palette colour
-		-- if highlight.fg == palette.pine then
-		--     highlight.fg = palette.foam
-		-- end
+		if highlight.fg == palette.pine then
+			highlight.fg = palette.foam
+		end
 	end,
 })
 
@@ -85,6 +85,7 @@ vim.cmd("colorscheme rose-pine-moon")
 -- vim.cmd("colorscheme rose-pine-dawn")
 
 -- Tokyonight setup
+
 -- require("tokyonight").setup({
 -- 	style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
 -- 	light_style = "day", -- The theme is used when the background is set to light

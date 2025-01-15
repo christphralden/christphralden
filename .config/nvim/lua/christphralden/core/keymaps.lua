@@ -21,7 +21,6 @@ keymap.set("n", "<leader>tx", ":tabclose<CR>") -- closetab
 keymap.set("n", "<leader>tn", ":tabn<CR>") -- nexttab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --prevtab
 
--- plugin keymaps
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
 -- nvim tree
@@ -43,16 +42,6 @@ keymap.set("n", "<C-i>", "<C-o>")
 -- transparent
 -- keymap.set("n", "<leader>t", ":TransparentToggle<CR>")
 
--- my bindings
--- keymap.set("n", "<leader>cp", ":w<CR>:!clang++ %:p -o %:p:r && %:p:r<CR>", { noremap = true, silent = true })
-
-keymap.set(
-	"n",
-	"<leader>cp",
-	":w<CR>:!clang++ %:p -o %:p:r<CR>:!tmux new-window 'bash -c \"%:p:r; echo; echo Press Enter to exit...; read\"'<CR>",
-	{ noremap = true, silent = true }
-)
-
 -- i will be bullied for this
 keymap.set("n", "e", "l") -- shit is just too goofy
 keymap.set("v", "e", "l") -- shit is just too goofy
@@ -69,7 +58,7 @@ keymap.set("v", "L", "$")
 keymap.set("n", "L", "$")
 keymap.set("i", "l;<leader>", "<C-o>m`<C-o>A;<C-o>``")
 keymap.set("i", ";<leader>", "<C-o>A;")
--- keymap.set("i", ".<leader>", "<down><end>;<cr>")
+keymap.set("i", ".<leader>", "<down><end>;<cr>")
 -- keymap.set("i", "l.<leader>", "<c-o>m`<down><end>;<c-o>``")
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")
@@ -96,6 +85,11 @@ vim.keymap.set("n", "<Up>", ":m .-2<CR>==")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-vim.keymap.set("n", "Q", "<nop>") -- fuck Ex
-
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format) -- format code using lsp
+-- my bindings
+-- keymap.set("n", "<leader>cp", ":w<CR>:!clang++ %:p -o %:p:r && %:p:r<CR>", { noremap = true, silent = true })
+keymap.set(
+	"n",
+	"<leader>cp",
+	":w<CR>:!clang++ %:p -o %:p:r<CR>:!tmux new-window 'bash -c \"%:p:r; echo; echo Press Enter to exit...; read\"'<CR>",
+	{ noremap = true, silent = true }
+)
