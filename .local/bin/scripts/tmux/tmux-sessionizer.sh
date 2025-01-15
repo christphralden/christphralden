@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
 harpoon=(
-    "$HOME/Developer/project1"
-    "$HOME/Developer/project2"
-    "$HOME/Developer/important"
+    "$HOME/Developer/Desia/desia-application"
 )
 
 found_dirs=$(find ~/Developer -mindepth 1 -maxdepth 3 -type d \( -name '.git' -o -name 'node_modules' \) -prune -o -print)
