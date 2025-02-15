@@ -105,12 +105,13 @@ source $ZSH/oh-my-zsh.sh
 
 export FZF_DEFAULT_OPTS="--height 100% --layout=reverse --border"
 
-export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin
+export PATH="/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export PATH="$PATH:/Users/christopheralden/fvm/versions/stable/bin"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.local/bin/scripts:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -128,6 +129,8 @@ unset __conda_setup
 # <<< conda initialize <<<
 source "$HOME/Library/Application Support/org.dfinity.dfx/env"
 source "$HOME/.local/bin/scripts/alias/setup-alias.sh"
+source "$HOME/.local/bin/scripts/alias/desia.private.sh"
+
 
 eval "$(fzf --zsh)"
 eval "$(thefuck --alias)"
@@ -138,4 +141,3 @@ eval "$(zoxide init zsh)"
 
 
 
-export PATH="/opt/homebrew/opt/mysql@8.0/bin:$PATH"
