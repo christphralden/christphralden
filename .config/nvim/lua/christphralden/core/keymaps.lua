@@ -42,7 +42,7 @@ keymap.set("n", "<C-i>", "<C-o>")
 -- transparent
 -- keymap.set("n", "<leader>t", ":TransparentToggle<CR>")
 
--- i will be bullied for this
+-- fuck off
 keymap.set("n", "e", "l") -- shit is just too goofy
 keymap.set("v", "e", "l") -- shit is just too goofy
 keymap.set("n", "w", "h")
@@ -56,9 +56,9 @@ keymap.set("v", "H", "^")
 keymap.set("n", "H", "^")
 keymap.set("v", "L", "$")
 keymap.set("n", "L", "$")
-keymap.set("i", "l;<leader>", "<C-o>m`<C-o>A;<C-o>``")
-keymap.set("i", ";<leader>", "<C-o>A;")
-keymap.set("i", ".<leader>", "<down><end>;<cr>")
+-- keymap.set("i", "l;<leader>", "<C-o>m`<C-o>A;<C-o>``") NEVER USE THIS ANYMORE
+-- keymap.set("i", ";<leader>", "<C-o>A;")
+-- keymap.set("i", ".<leader>", "<down><end>;<cr>")
 -- keymap.set("i", "l.<leader>", "<c-o>m`<down><end>;<c-o>``")
 keymap.set("n", "<C-d>", "<C-d>zz")
 keymap.set("n", "<C-u>", "<C-u>zz")

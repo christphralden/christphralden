@@ -139,6 +139,9 @@ return packer.startup(function(use)
 	-- transparent background
 	-- use("xiyaowong/transparent.nvim")
 
+	-- xml
+	use("chrisbra/vim-xml-runtime")
+
 	-- markdown
 	use({
 		"MeanderingProgrammer/render-markdown.nvim",
