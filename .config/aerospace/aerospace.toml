@@ -273,22 +273,39 @@ run = 'move-node-to-workspace P'
 [[on-window-detected]] # Spotify - B
 if.app-id =  'com.spotify.client'
 run = 'move-node-to-workspace B'
+check-further-callbacks = true
 
 [[on-window-detected]] # Music - B
 if.app-id =  'com.apple.Music'
 run = 'move-node-to-workspace B'
+check-further-callbacks = true
+
+[[on-window-detected]]
+if.workspace = "B"
+run = "layout floating"
 
 [[on-window-detected]] # Gpt - N
 if.app-id =  'com.openai.chat'
 run = 'move-node-to-workspace N'
+check-further-callbacks = true
 
-[[on-window-detected]] # Obsidian - M
-if.app-id =  'md.obsidian'
-run = 'move-node-to-workspace M'
+[[on-window-detected]]
+if.workspace = "N"
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = "move-node-to-workspace M"
+check-further-callbacks = true
 
 [[on-window-detected]] # Notion - M
 if.app-id =  'notion.id'
 run = 'move-node-to-workspace M'
+check-further-callbacks = true
+
+[[on-window-detected]]
+if.workspace = "M"
+run = "layout floating"
 
 [[on-window-detected]] # Slack - Q
 if.app-id =  'com.tinyspeck.slackmacgap'
@@ -297,4 +314,7 @@ run = 'move-node-to-workspace Q'
 [[on-window-detected]] # Linear - W
 if.app-id =  'com.linear'
 run = 'move-node-to-workspace W'
+
+
+
 

@@ -38,6 +38,7 @@ alias tree='tree -a -L 4 -h -f'
 alias ip='ipconfig getifaddr en0'
 alias service="netstat -atp tcp"
 alias cls="clear"
+alias vim="nvim"
 
 # tmux
 alias detach='tmux detach'
@@ -95,4 +96,10 @@ yy() {
 		builtin cd -- "$cwd"
 	fi
 	rm -f -- "$tmp"
+}
+
+fgco() {
+  local branch
+  branch=$(git branch --format="%(refname:short)" | fzf --preview="git log --oneline --color=always {} | head -20") || return
+  git checkout "$branch"
 }
