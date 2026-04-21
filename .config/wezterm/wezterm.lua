@@ -53,15 +53,16 @@ config.colors = {
 
 -- Dimmer for background
 local dimmer = {
-	brightness = 0.05,
-	saturation = 0.75,
+	brightness = 0.02,
+	saturation = 0.8,
 }
 
 -- Define the two background options (wallpaper and transparent)
 local background_with_wallpaper = {
 	{
 		source = {
-			File = wez.config_dir .. "/backgrounds/chaeyoung-1.jpeg",
+			File = wez.config_dir .. "/backgrounds/chaewon-1.jpg",
+			-- File = wez.config_dir .. "/backgrounds/chaeyoung-1.jpeg",
 			-- File = wez.config_dir .. "/backgrounds/pain.jpg",
 			-- File = wez.config_dir .. "/backgrounds/azumanga.gif",
 		},
@@ -118,6 +119,11 @@ config.keys = {
 		key = "b",
 		mods = "CTRL|SHIFT",
 		action = wez.action.EmitEvent("toggle-background"),
+	},
+	{
+		key = "Enter",
+		mods = "SHIFT",
+		action = wez.action({ SendString = "\x1b\r" }),
 	},
 }
 

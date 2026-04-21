@@ -23,9 +23,12 @@ conf() {
         wez)
             cd ~/.config/wezterm/ && nvim
             ;;
+        starship)
+            cd ~/.config/starship/ && nvim
+            ;;
         ghostty)
-        cd ~/.config/ghostty/ && nvim
-        ;;
+            cd ~/.config/ghostty/ && nvim
+            ;;
         *)
             echo "Unknown configuration command: $1"
             ;;
