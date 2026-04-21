@@ -158,14 +158,15 @@ alt-u = 'workspace U'
 alt-i = 'workspace I'
 alt-o = 'workspace O'
 alt-p = 'workspace P'
-
-# Secondary monitor
-alt-b = 'workspace B'
-alt-n = 'workspace N'
-alt-m = 'workspace M'
+alt-f = 'workspace F'
 alt-q = 'workspace Q'
 alt-w = 'workspace W'
 alt-e = 'workspace E'
+
+# Secondary Monitor
+alt-b = 'workspace B'
+alt-n = 'workspace N'
+alt-m = 'workspace M'
 
 # alt-5 = 'workspace 5'
 # alt-6 = 'workspace 6'
