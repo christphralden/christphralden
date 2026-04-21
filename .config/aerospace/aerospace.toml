@@ -294,12 +294,20 @@ run = 'move-node-to-workspace Q'
 if.app-id =  'com.github.wez.wezterm'
 run = 'move-node-to-workspace Q'
 
+[[on-window-detected]] # VsCode - Q
+if.app-id =  'com.microsoft.VSCode'
+run = 'move-node-to-workspace Q'
+
 [[on-window-detected]] # Finder - F
 if.app-id =  'com.apple.finder'
 run = 'move-node-to-workspace F'
 
 [[on-window-detected]] # Line - U
 if.app-id =  'jp.naver.line.mac'
+run = 'move-node-to-workspace U'
+
+[[on-window-detected]] # WhatsApp - U
+if.app-id =  'net.whatsapp.WhatsApp'
 run = 'move-node-to-workspace U'
 
 [[on-window-detected]] # Spotify - P
@@ -329,6 +337,20 @@ run = 'move-node-to-workspace I'
 [[on-window-detected]] # Linear - I
 if.app-id =  'com.linear'
 run = 'move-node-to-workspace I'
+
+[[on-window-detected]] # System - B
+if.app-id =  'com.apple.systempreferences'
+run = 'move-node-to-workspace B'
+
+[[on-window-detected]] # OVPN - B
+if.app-id =  'org.openvpn.client.app'
+run = 'move-node-to-workspace B'
+
+[[on-window-detected]] # ZOOM - N
+if.app-id =  'us.zoom.xos'
+run = 'move-node-to-workspace N'
+
+
 
 
 
