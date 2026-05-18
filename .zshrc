@@ -1,3 +1,16 @@
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="/Users/christopheralden/fvm/versions/stable/bin:$PATH"
+export PATH="/Users/alden-desia/.local/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && source "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] \
+  && source "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
 export ZSH="$HOME/.oh-my-zsh"
 plugins=(
   git
@@ -13,20 +26,7 @@ source $ZSH/oh-my-zsh.sh
 [ -f "$(brew --prefix)/opt/fzf/shell/completion.zsh" ] && \
   source "$(brew --prefix)/opt/fzf/shell/completion.zsh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && source "/opt/homebrew/opt/nvm/nvm.sh"
-[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] \
-  && source "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
-
 export FZF_DEFAULT_OPTS="--height 100% --layout=reverse --border"
-
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/sbin:$PATH"
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
-export PATH="$HOME/.composer/vendor/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="/Users/christopheralden/fvm/versions/stable/bin:$PATH"
-export PATH="/Users/alden-desia/.local/bin:$PATH"
 
 source "$HOME/.local/bin/scripts/alias/setup-alias.sh"
 source "$HOME/.local/bin/scripts/alias/desia.private.sh"
