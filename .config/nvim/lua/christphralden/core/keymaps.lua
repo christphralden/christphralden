@@ -108,7 +108,7 @@ keymap.set("n", "<leader>dd", "<cmd>Gvdiffsplit<CR>", { desc = "Git diff split" 
 
 -- gitsigns
 keymap.set("n", "<leader>hs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunks under cursor" })
-keymap.set("n", "<leader>hh", "<cmd>InlineDiff preview_hunk_inline<CR>", { desc = "Stage hunks under cursor" })
+keymap.set("n", "<leader>hh", "<cmd>Gitsigns preview_hunk_inline<CR>", { desc = "Stage hunks under cursor" })
 
 -- grapple
 vim.keymap.set("n", "<leader>q", "<cmd>Grapple toggle<CR>", { desc = "Tag a file" })
