@@ -8,6 +8,12 @@ keymap.set("n", "<leader>nh", ":nohl<CR>") -- no highlight
 
 keymap.set("n", "x", '"_x"')
 
+-- replaces selected text without losing your buffer 
+keymap.set("x", "p", [["_dP]])
+
+-- delete text without saving to register
+keymap.set({"n", "v"}, "d", [["_d]])
+
 keymap.set("n", "<leader>+", "<C-a>")
 keymap.set("n", "<leader>-", "<C-x>")
 
@@ -39,9 +45,6 @@ keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>") -- list available help
 keymap.set("n", "<C-o>", "<C-i>")
 keymap.set("n", "<C-i>", "<C-o>")
 
--- transparent
--- keymap.set("n", "<leader>t", ":TransparentToggle<CR>")
-
 -- fuck off
 keymap.set("n", "e", "l") -- shit is just too goofy
 keymap.set("v", "e", "l") -- shit is just too goofy
@@ -66,8 +69,8 @@ keymap.set("v", "<C-d>", "<C-d>zz")
 keymap.set("v", "<C-u>", "<C-u>zz")
 
 -- indentation
-keymap.set("n", ">", ">>")
-keymap.set("n", "<", "<<")
+keymap.set("n", ">", ">gv")
+keymap.set("n", "<", "<gv")
 
 -- save
 keymap.set("n", "<leader>s", ":wa<CR>")
@@ -76,20 +79,41 @@ keymap.set("n", "<leader>s", ":wa<CR>")
 keymap.set("n", "<leader>ya", ":%y<CR>") -- yank all lines in buffer, cursor stays the same
 
 -- move lines up and down
-vim.keymap.set("n", "<Down>", ":m .+1<CR>==")
-vim.keymap.set("v", "<Up>", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "<Down>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("n", "<Up>", ":m .-2<CR>==")
+keymap.set("n", "<Down>", ":m .+1<CR>==")
+keymap.set("v", "<Up>", ":m '<-2<CR>gv=gv")
+keymap.set("v", "<Down>", ":m '>+1<CR>gv=gv")
+keymap.set("n", "<Up>", ":m .-2<CR>==")
 
 -- centers search result
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+keymap.set("n", "n", "nzzzv")
+keymap.set("n", "N", "Nzzzv")
 
--- my bindings
--- keymap.set("n", "<leader>cp", ":w<CR>:!clang++ %:p -o %:p:r && %:p:r<CR>", { noremap = true, silent = true })
-keymap.set(
-	"n",
-	"<leader>cp",
-	":w<CR>:!clang++ %:p -o %:p:r<CR>:!tmux new-window 'bash -c \"%:p:r; echo; echo Press Enter to exit...; read\"'<CR>",
-	{ noremap = true, silent = true }
-)
+-- replace text
+keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- restart neovim
+keymap.set("n", "<leader>re", "<cmd>restart<cr>")
+
+-- to clipboard
+keymap.set("n", "<leader>Y", [[+Y]])
+
+-- lsp
+keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to definition" })
+keymap.set("n", "<leader>f", vim.lsp.buf.format, { desc = "Format Local buffer" })
+keymap.set("n", "df", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
+
+-- fugitive
+keymap.set("n", "<leader>gg", "<cmd>tabnew | Git | only<CR>", { desc = "Fugitive full page new tab" })
+keymap.set("n", "<leader>dd", "<cmd>Gvdiffsplit<CR>", { desc = "Git diff split" })
+
+-- gitsigns
+keymap.set("n", "<leader>hs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunks under cursor" })
+keymap.set("n", "<leader>hh", "<cmd>InlineDiff preview_hunk_inline<CR>", { desc = "Stage hunks under cursor" })
+
+-- grapple
+vim.keymap.set("n", "<leader>q", "<cmd>Grapple toggle<CR>", { desc = "Tag a file" })
+vim.keymap.set("n", "<leader>w", "<cmd>Grapple toggle_tags<CR>", { desc = "Toggle tags menu" })
+vim.keymap.set("n", "<leader>1", "<cmd>Grapple select index=1<CR>", { desc = "First tag" })
+vim.keymap.set("n", "<leader>2", "<cmd>Grapple select index=2<CR>", { desc = "Second tag" })
+vim.keymap.set("n", "<leader>3", "<cmd>Grapple select index=3<CR>", { desc = "Third tag" })
+vim.keymap.set("n", "<leader>4", "<cmd>Grapple select index=4<CR>", { desc = "Fourth tag" })
