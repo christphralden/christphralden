@@ -7,10 +7,8 @@ run() {
   
   local files_to_copy_to_root=(
     "$HOME/.zshrc"
-    "$HOME/.p10k.zsh"
     "$HOME/.ideavimrc"
     "$HOME/.warp"
-
   )
 
   local files_to_copy_to_config=(

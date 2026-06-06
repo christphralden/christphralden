@@ -1,18 +1,9 @@
 #!/usr/bin/env bash
 
-lang=` echo "golang cpp typescript nodejs python c java javascript zsh lua bash php" | tr ' ' '\n'`
+LANG_FILE="$HOME/.local/bin/scripts/tmux/.tmux-cht-lang"
 
-echo "${lang}"
+selected=$(fzf --prompt="Language: " < "$LANG_FILE") || exit 0
+read -rp "Search: " query
+[[ -z "$query" ]] && exit 0
 
-read -p "Select language: " selected
-
-read -p "Search: " query
-
-if echo "$lang" | grep -qw "$selected"; then
-  query=$(echo "$query" | tr ' ' '+')
- curl cht.sh/$selected/$query
-  echo "Press any key to exit..."
-  read -n 1
-else
-  echo "Wrong format"
-fi
+curl cht.sh/"$selected"/$(echo "$query" | tr ' ' '+')
