@@ -5,6 +5,7 @@ require("christphralden.core.pack")
 require("christphralden.core.commands")
 
 -- plugins
+require("christphralden.plugins.cmp")
 require("christphralden.plugins.lsp")
 require("christphralden.plugins.autopairs")
 require("christphralden.plugins.autotag")
@@ -12,6 +13,7 @@ require("christphralden.plugins.telescope")
 require("christphralden.plugins.treesitter")
 require("christphralden.plugins.rose-pine")
 require("christphralden.plugins.grapple")
+require("christphralden.plugins.conform")
 
 
 require("christphralden.core.options")
