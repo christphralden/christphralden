@@ -6,7 +6,7 @@ local telescope_builtin_ok, telescope_builtin = pcall(require, "telescope.builti
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "No highlight" })
+keymap.set("n", "<leader>nh", "<cmd>nohl<cr>", { desc = "No highlight" })
 
 keymap.set("n", "x", '"_x"', { desc = "Delete without register" })
 
@@ -20,18 +20,18 @@ keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement" })
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split vertical" })
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split horizontal" })
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Equal windows" })
-keymap.set("n", "<leader>sx", ":close<CR>", { desc = "Close window" })
+keymap.set("n", "<leader>sx", "<cmd>close<cr>", { desc = "Close window" })
 
-keymap.set("n", "<leader>to", ":tabnew<CR>", { desc = "New tab" })
-keymap.set("n", "<leader>tx", ":tabclose<CR>", { desc = "Close tab" })
-keymap.set("n", "<leader>tn", ":tabn<CR>", { desc = "Next tab" })
-keymap.set("n", "<leader>tp", ":tabp<CR>", { desc = "Prev tab" })
+keymap.set("n", "<leader>to", "<cmd>tabnew<cr>", { desc = "New tab" })
+keymap.set("n", "<leader>tx", "<cmd>tabclose<cr>", { desc = "Close tab" })
+keymap.set("n", "<leader>tn", "<cmd>tabn<cr>", { desc = "Next tab" })
+keymap.set("n", "<leader>tp", "<cmd>tabp<cr>", { desc = "Prev tab" })
 
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>", { desc = "Toggle maximizer" })
+keymap.set("n", "<leader>sm", "<cmd>MaximizerToggle<cr>", { desc = "Toggle maximizer" })
 
 -- netrw
-keymap.set("n", "<leader>e", ":Ex<CR>", { desc = "Open explorer" })
-keymap.set("n", "<leader>r", ":Rex<CR>", { desc = "Return to explorer" })
+keymap.set("n", "<leader>e", "<cmd>Ex<cr>", { desc = "Open explorer" })
+keymap.set("n", "<leader>r", "<cmd>Rex<cr>", { desc = "Return to explorer" })
 
 -- telescope
 keymap.set("n", "<leader>en", function()
@@ -39,11 +39,11 @@ keymap.set("n", "<leader>en", function()
     telescope_builtin.find_files({ cwd = vim.fn.stdpath("config") })
   end
 end, { desc = "Edit neovim config" })
-keymap.set("n", "<leader>j", ":Telescope find_files<CR>", { desc = "Find files" })
-keymap.set("n", "<leader>u", ":Telescope live_grep<CR>", { desc = "Live grep" })
-keymap.set("n", "<leader>fc", ":Telescope grep_string<CR>", { desc = "Grep string under cursor" })
-keymap.set("n", "<leader>fb", ":Telescope buffers<CR>", { desc = "List buffers" })
-keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = "Help tags" })
+keymap.set("n", "<leader>j", "<cmd>Telescope find_files<cr>", { desc = "Find files" })
+keymap.set("n", "<leader>u", "<cmd>Telescope live_grep<cr>", { desc = "Live grep" })
+keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Grep string under cursor" })
+keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "List buffers" })
+keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", { desc = "Help tags" })
 keymap.set("n", "<C-o>", "<C-i>", { desc = "Jump forward" })
 keymap.set("n", "<C-i>", "<C-o>", { desc = "Jump backward" })
 

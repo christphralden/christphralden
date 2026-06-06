@@ -4,6 +4,9 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 
+--statusline
+opt.laststatus = 3 -- combine statusline across tabs
+
 -- indentation
 opt.tabstop = 2
 opt.shiftwidth = 2
@@ -92,4 +95,3 @@ vim.o.cmdheight = 0
 opt.scrolloff = 8
 
 -----
- 

@@ -1,4 +1,4 @@
-require("vim._core.ui2").enable({})
+-- require("vim._core.ui2").enable({})
 
 -- core
 require("christphralden.core.pack")
@@ -15,8 +15,10 @@ require("christphralden.plugins.rose-pine")
 require("christphralden.plugins.grapple")
 require("christphralden.plugins.conform")
 require("christphralden.plugins.gitsigns")
+require("christphralden.plugins.noice")
 
 
 require("christphralden.core.options")
 require("christphralden.core.keymaps")
 require("christphralden.core.colors")
+require("christphralden.core.statusline")

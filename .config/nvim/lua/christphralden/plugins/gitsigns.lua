@@ -1,4 +1,4 @@
-local gitsigns_setup, gitsigns = pcall(require, "gitsigns.nvim")
+local gitsigns_setup, gitsigns = pcall(require, "gitsigns")
 if not gitsigns_setup then
   return
 end
@@ -12,7 +12,6 @@ gitsigns.setup({
     changedelete = { text = '~' },
     untracked    = { text = '┆' },
   },
-  linehl = true,
   current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
   current_line_blame = true
 })
