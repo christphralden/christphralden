@@ -1,39 +1,33 @@
-local status, treesitter = pcall(require, "nvim-treesitter.configs")
+local status, treesitter = pcall(require, "nvim-treesitter")
 if not status then
 	return
 end
 
-treesitter.setup({
-	-- enable syntax highlighting
-	highlight = {
-		enable = true,
-	},
-	-- enable indentation
-	indent = { enable = true },
-	-- ensure these language parsers are installed
-	ensure_installed = {
-		"json",
-		"astro",
-		"javascript",
-		"c",
-		"cpp",
-		"cmake",
-		"typescript",
-		"tsx",
-		"yaml",
-		"html",
-		"css",
-		"markdown",
-		"markdown_inline",
-		-- "svelte",
-		-- "graphql",
-		"bash",
-		"lua",
-		"vim",
-		"dockerfile",
-		"gitignore",
-		"php",
-	},
-	-- auto install above language parsers
-	auto_install = true,
+local ensure_installed = {
+    "go", "rust", "typescript", "javascript", "tsx",
+    "html", "css", "json", "bash",
+    "http", "dockerfile",
+}
+
+treesitter.install(ensure_installed)
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function(args)
+		local buf = args.buf
+		local ft = vim.bo[buf].filetype
+
+		local lang = vim.treesitter.language.get_lang(ft)
+		if not lang then
+			return
+		end
+
+		local ok_add = pcall(vim.treesitter.language.add, lang)
+		if not ok_add then
+			return
+		end
+
+		pcall(vim.treesitter.start, buf, lang)
+	end,
 })
+
