@@ -14,11 +14,9 @@ require("christphralden.plugins.treesitter")
 require("christphralden.plugins.rose-pine")
 require("christphralden.plugins.grapple")
 require("christphralden.plugins.conform")
+require("christphralden.plugins.gitsigns")
 
 
 require("christphralden.core.options")
 require("christphralden.core.keymaps")
 require("christphralden.core.colors")
-
-
-
