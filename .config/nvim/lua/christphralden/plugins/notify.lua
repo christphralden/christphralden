@@ -4,6 +4,6 @@ if not notify_setup then
 end
 
 notify.setup({
-  background_colour = "#1e1e2e",
+  background_colour = "#000000",
   stages = "fade",
 })

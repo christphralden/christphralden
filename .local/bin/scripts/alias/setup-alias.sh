@@ -59,7 +59,7 @@ fgco() {
   git checkout "$branch"
 }
 
-al() {
+alias-d() {
   local sep
   sep=$(printf '\037')
   local selected
