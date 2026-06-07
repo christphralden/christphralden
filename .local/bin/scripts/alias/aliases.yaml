@@ -99,7 +99,7 @@ aliases:
       desc: "copy dotfiles to christphralden repo",
     }
   - {
-      name: alias,
+      name: falias,
       cmd: "alias | fzf",
       category: utils,
       desc: "browse all user defined aliases and functions with fzf",
