@@ -1,13 +1,13 @@
 vim.pack.add({
   -- colors
-  "https://github.com/rose-pine/neovim",                -- lua functions
+  "https://github.com/rose-pine/neovim",               -- lua functions
   -- essentials
-  "https://github.com/nvim-lua/plenary.nvim",           -- lua functions
-  "https://github.com/christoomey/vim-tmux-navigator",  -- enable tmux navigation in nvim
-  "https://github.com/szw/vim-maximizer",               -- enable pane maximizing
-  "https://github.com/tpope/vim-surround",              ---- surrounding characters [cs<curr_char><to_char>, ds<char>, ysw<char>]
-  "https://github.com/vim-scripts/ReplaceWithRegister", -- enable pane maximizing
-  "https://github.com/numToStr/Comment.nvim",           -- enable pane maximizing
+  "https://github.com/nvim-lua/plenary.nvim",          -- lua functions
+  "https://github.com/christoomey/vim-tmux-navigator", -- enable tmux navigation in nvim
+  "https://github.com/szw/vim-maximizer",              -- enable pane maximizing
+  "https://github.com/tpope/vim-surround",             ---- surrounding characters [cs<curr_char><to_char>, ds<char>, ysw<char>]
+  "https://github.com/vim-scripts/ReplaceWithRegister",
+  "https://github.com/numToStr/Comment.nvim",
   -- autopair stuffs
   "https://github.com/windwp/nvim-autopairs",
   "https://github.com/windwp/nvim-ts-autotag",
@@ -38,13 +38,15 @@ vim.pack.add({
   "https://github.com/lewis6991/gitsigns.nvim", -- git line diffs
   -- fast boi
   "https://github.com/cbochs/grapple.nvim",
-
-
   -- [deps] required by some plugins
   "https://github.com/nvim-tree/nvim-web-devicons",
-
   -- noice: floating cmdline + UI components
   "https://github.com/MunifTanjim/nui.nvim", -- required: UI primitives (popups, inputs, layouts)
   "https://github.com/rcarriga/nvim-notify", -- optional: replaces vim.notify with styled notifications (unused - messages disabled)
   "https://github.com/folke/noice.nvim",
+
+  -- nice to haves
+  "https://github.com/folke/zen-mode.nvim",
+
+  "https://github.com/rmagatti/goto-preview" -- lsp on crack
 })

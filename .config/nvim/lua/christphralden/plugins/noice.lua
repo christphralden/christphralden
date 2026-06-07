@@ -4,8 +4,26 @@ if not noice_setup then
 end
 
 noice.setup({
+  presets   = {
+    long_message_to_split = true, -- long messages will be sent to a split
+  },
   routes    = {
+    -- {
+    --   filter = { event = "msg_show", kind = "" },
+    --   view = "split",
+    -- },
     {
+      -- cmd stdout
+      filter = { event = 'msg_show', kind = { 'shell_out', 'shell_err' } },
+      view = 'split',
+      opts = {
+        level = 'info',
+        skip = false,
+        replace = false,
+      },
+    },
+    {
+      -- filter out noise
       filter = {
         event = "msg_show",
         any = {

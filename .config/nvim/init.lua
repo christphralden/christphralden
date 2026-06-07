@@ -19,8 +19,10 @@ require("christphralden.plugins.conform")
 require("christphralden.plugins.gitsigns")
 require("christphralden.plugins.notify")
 require("christphralden.plugins.noice")
-
+require("christphralden.plugins.zen")
+require("christphralden.plugins.goto")
 
 require("christphralden.core.options")
 require("christphralden.core.keymaps")
+require("christphralden.core.autocommands")
 require("christphralden.core.statusline")
