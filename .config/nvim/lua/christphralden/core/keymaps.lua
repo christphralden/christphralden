@@ -168,8 +168,6 @@ keymap.set("n", "<leader>np", "<cmd>NoicePick<cr>", { desc = "Dismiss all notifi
 vim.keymap.set("n", "<leader>x", function()
   if zen_ok then zen.toggle() end
 end)
-vim.keymap.set("n", "<leader>ci", vim.lsp.buf.incoming_calls, { desc = "Incoming calls" })
-vim.keymap.set("n", "<leader>co", vim.lsp.buf.outgoing_calls, { desc = "Outgoing calls" })
 -- replacewithregister
 vim.keymap.set("n", "r", "<Plug>ReplaceWithRegisterOperator", { noremap = false })
 vim.keymap.set("n", "rr", "<Plug>ReplaceWithRegisterLine", { noremap = false })
