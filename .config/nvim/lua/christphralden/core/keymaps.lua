@@ -70,14 +70,14 @@ keymap.set("v", "<C-u>", "<C-u>zz", { desc = "Scroll up centered" })
 keymap.set("n", ">", ">gv", { desc = "Indent right" })
 keymap.set("n", "<", "<gv", { desc = "Indent left" })
 
-keymap.set("n", "<leader>s", ":wa<CR>", { desc = "Save all" })
+keymap.set("n", "<leader>s", ":wa<cr>", { desc = "Save all" })
 
-keymap.set("n", "<leader>ya", ":%y<CR>", { desc = "Yank all lines" })
+keymap.set("n", "<leader>ya", ":%y<cr>", { desc = "Yank all lines" })
 
-keymap.set("n", "<Down>", ":m .+1<CR>==", { desc = "Move line down" })
-keymap.set("v", "<Up>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
-keymap.set("v", "<Down>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-keymap.set("n", "<Up>", ":m .-2<CR>==", { desc = "Move line up" })
+keymap.set("n", "<Down>", ":m .+1<cr>==", { desc = "Move line down" })
+keymap.set("v", "<Up>", ":m '<-2<cr>gv=gv", { desc = "Move selection up" })
+keymap.set("v", "<Down>", ":m '>+1<cr>gv=gv", { desc = "Move selection down" })
+keymap.set("n", "<Up>", ":m .-2<cr>==", { desc = "Move line up" })
 
 keymap.set("n", "n", "nzzzv", { desc = "Next search result centered" })
 keymap.set("n", "N", "Nzzzv", { desc = "Prev search result centered" })
@@ -115,19 +115,21 @@ keymap.set("n", "<leader>gs", function()
   if telescope_builtin_ok then telescope_builtin.git_status() end
 end, { desc = "Git status" })
 -- fugitive
-keymap.set("n", "<leader>gg", "<cmd>tabnew | Git | only<CR>", { desc = "Fugitive full page (Git Gud)" })
-keymap.set("n", "<leader>gd", "<cmd>Gvdiffsplit<CR>", { desc = "Git diff split (Git Diff)" })
+keymap.set("n", "<leader>gg", "<cmd>tabnew | Git | only<cr>", { desc = "Fugitive full page (Git Gud)" })
+keymap.set("n", "<leader>gd", "<cmd>Gvdiffsplit<cr>", { desc = "Git diff split (Git Diff)" })
 -- gitsigns
-keymap.set("n", "<leader>ga", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
-keymap.set("n", "\\", "<cmd>Gitsigns preview_hunk_inline<CR>", { desc = "Preview hunk" }) -- why \ ? bcs its close to next_hunk and prev_hunk below
-keymap.set("n", "{", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Previous hunk" })
-keymap.set("n", "}", "<cmd>Gitsigns next_hunk<CR>", { desc = "Next hunk" })
+keymap.set("n", "<leader>ga", "<cmd>Gitsigns stage_hunk<cr>", { desc = "Stage hunk" })
+keymap.set("n", "\\", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc = "Preview hunk" }) -- why \ ? bcs its close to next_hunk and prev_hunk below
+keymap.set("n", "{", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Previous hunk" })
+keymap.set("n", "}", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next hunk" })
 -- grapple
-keymap.set("n", "<leader>q", "<cmd>Grapple toggle<CR>", { desc = "Tag file" })
-keymap.set("n", "<leader>w", "<cmd>Grapple toggle_tags<CR>", { desc = "Toggle tags" })
-keymap.set("n", "<leader>1", "<cmd>Grapple select index=1<CR>", { desc = "Tag 1" })
-keymap.set("n", "<leader>2", "<cmd>Grapple select index=2<CR>", { desc = "Tag 2" })
-keymap.set("n", "<leader>3", "<cmd>Grapple select index=3<CR>", { desc = "Tag 3" })
-keymap.set("n", "<leader>4", "<cmd>Grapple select index=4<CR>", { desc = "Tag 4" })
+keymap.set("n", "<leader>q", "<cmd>Grapple toggle<cr>", { desc = "Tag file" })
+keymap.set("n", "<leader>w", "<cmd>Grapple toggle_tags<cr>", { desc = "Toggle tags" })
+keymap.set("n", "<leader>1", "<cmd>Grapple select index=1<cr>", { desc = "Tag 1" })
+keymap.set("n", "<leader>2", "<cmd>Grapple select index=2<cr>", { desc = "Tag 2" })
+keymap.set("n", "<leader>3", "<cmd>Grapple select index=3<cr>", { desc = "Tag 3" })
+keymap.set("n", "<leader>4", "<cmd>Grapple select index=4<cr>", { desc = "Tag 4" })
 -- mason
-keymap.set("n", "<leader>m", "<cmd>Mason<CR>")
+keymap.set("n", "<leader>m", "<cmd>Mason<cr>", { desc = "Open mason" })
+-- noice
+keymap.set("n", "nd", "<cmd>Noice dismiss<cr>", { desc = "Dismiss all notifications" })
