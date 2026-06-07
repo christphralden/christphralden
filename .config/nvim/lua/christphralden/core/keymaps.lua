@@ -3,7 +3,10 @@ vim.g.mapleader = " "
 local keymap = vim.keymap
 local conform_ok, conform = pcall(require, "conform")
 local telescope_builtin_ok, telescope_builtin = pcall(require, "telescope.builtin")
+local zen_ok, zen = pcall(require, 'zen-mode')
+local goto_preview_ok, goto_preview = pcall(require, 'goto-preview')
 
+-- set
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode" })
 
 keymap.set("n", "<leader>nh", "<cmd>nohl<cr>", { desc = "No highlight" })
@@ -70,14 +73,14 @@ keymap.set("v", "<C-u>", "<C-u>zz", { desc = "Scroll up centered" })
 keymap.set("n", ">", ">gv", { desc = "Indent right" })
 keymap.set("n", "<", "<gv", { desc = "Indent left" })
 
-keymap.set("n", "<leader>s", ":wa<cr>", { desc = "Save all" })
+keymap.set("n", "<leader>s", "<cmd>wa<cr>", { desc = "Save all" })
 
-keymap.set("n", "<leader>ya", ":%y<cr>", { desc = "Yank all lines" })
+keymap.set("n", "<leader>ya", "<cmd>%y<cr>", { desc = "Yank all lines" })
 
-keymap.set("n", "<Down>", ":m .+1<cr>==", { desc = "Move line down" })
-keymap.set("v", "<Up>", ":m '<-2<cr>gv=gv", { desc = "Move selection up" })
-keymap.set("v", "<Down>", ":m '>+1<cr>gv=gv", { desc = "Move selection down" })
-keymap.set("n", "<Up>", ":m .-2<cr>==", { desc = "Move line up" })
+keymap.set("n", "<Down>", "<cmd>m .+1<cr>==", { desc = "Move line down" })
+keymap.set("v", "<Up>", "<cmd>m '<-2<cr>gv=gv", { desc = "Move selection up" })
+keymap.set("v", "<Down>", "<cmd>m '>+1<cr>gv=gv", { desc = "Move selection down" })
+keymap.set("n", "<Up>", "<cmd>m .-2<cr>==", { desc = "Move line up" })
 
 keymap.set("n", "n", "nzzzv", { desc = "Next search result centered" })
 keymap.set("n", "N", "Nzzzv", { desc = "Prev search result centered" })
@@ -90,23 +93,51 @@ keymap.set("n", "<leader>re", "<cmd>restart<cr>", { desc = "Restart neovim" })
 keymap.set("n", "<leader>Y", [[+Y]], { desc = "Yank to clipboard" })
 
 -- lsp
-keymap.set("n", "gd", function()
+-- lowercase goto_preview
+-- uppercase lsp
+
+keymap.set("n", "gD", function()
   if telescope_builtin_ok then telescope_builtin.lsp_definitions() end
 end, { desc = "Go to definition" })
-keymap.set("n", "gr", function()
+
+vim.keymap.set("n", "gd", function()
+  if goto_preview_ok then goto_preview.goto_preview_definition() end
+end, { noremap = true })
+
+keymap.set("n", "gR", function()
   if telescope_builtin_ok then telescope_builtin.lsp_references() end
 end, { desc = "Go to references" })
-keymap.set("n", "gi", function()
+
+vim.keymap.set("n", "gr", function()
+  if goto_preview_ok then goto_preview.goto_preview_references() end
+end, { noremap = true })
+
+keymap.set("n", "gI", function()
   if telescope_builtin_ok then telescope_builtin.lsp_implementations() end
-end, { desc = "Go to implementation" })
+end, { desc = "Go to implementations" })
+
+vim.keymap.set("n", "gi", function()
+  if goto_preview_ok then goto_preview.goto_preview_implementation() end
+end, { noremap = true })
+
+vim.keymap.set("n", "<esc>", function()
+  if goto_preview_ok then goto_preview.close_all_win() end
+end, { noremap = true })
+
 keymap.set("n", "<leader>f", function()
   if conform_ok then
     conform.format({ async = true, lsp_fallback = true })
   end
 end, { desc = "Format buffer" })
 keymap.set("n", "df", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
-keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Previous diagnostic" })
-keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
+vim.keymap.set('n', '[d', function()
+  vim.diagnostic.jump({ count = -1, float = true })
+end, { desc = "Previous diagnostic" })
+
+
+vim.keymap.set('n', ']d', function()
+  vim.diagnostic.jump({ count = 1, float = true })
+end, { desc = "Next diagnostic" })
 keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
 keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { desc = "Code actions" })
@@ -132,4 +163,12 @@ keymap.set("n", "<leader>4", "<cmd>Grapple select index=4<cr>", { desc = "Tag 4"
 -- mason
 keymap.set("n", "<leader>m", "<cmd>Mason<cr>", { desc = "Open mason" })
 -- noice
-keymap.set("n", "nd", "<cmd>Noice dismiss<cr>", { desc = "Dismiss all notifications" })
+keymap.set("n", "<leader>nd", "<cmd>Noice dismiss<cr>", { desc = "Dismiss all notifications" })
+keymap.set("n", "<leader>np", "<cmd>NoicePick<cr>", { desc = "Dismiss all notifications" })
+vim.keymap.set("n", "<leader>x", function()
+  if zen_ok then zen.toggle() end
+end)
+-- replacewithregister
+vim.keymap.set("n", "r", "<Plug>ReplaceWithRegisterOperator", { noremap = false })
+vim.keymap.set("n", "rr", "<Plug>ReplaceWithRegisterLine", { noremap = false })
+vim.keymap.set("x", "rw", "<Plug>ReplaceWithRegisterVisual", { noremap = false })

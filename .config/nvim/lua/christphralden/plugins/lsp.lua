@@ -1,19 +1,26 @@
-local mason_status, mason = pcall(require, "mason")
-if not mason_status then
+local mason_ok, mason = pcall(require, "mason")
+if not mason_ok then
   return
 end
 
-local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_status then
+local utils_ok, utils = pcall(require, "christphralden.core.utils")
+if not utils_ok then
   return
 end
 
-local mason_tool_installer_status, mason_tool_installer = pcall(require, "mason-tool-installer")
-if not mason_tool_installer_status then
+local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_ok then
+  return
+end
+
+local mason_tool_installer_ok, mason_tool_installer = pcall(require, "mason-tool-installer")
+if not mason_tool_installer_ok then
   return
 end
 
 local cmp_lsp_ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+
+local goto_preview_ok, _ = pcall(require, 'goto-preview')
 
 mason.setup()
 
@@ -110,10 +117,23 @@ vim.ui.input = function(opts, on_confirm)
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {
+  group = utils.augroup("lsp_attach"),
   callback = function(ev)
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     if client and client.server_capabilities.inlayHintProvider then
       vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+    end
+
+    -- unmapping defaults -- goto enabled
+    if goto_preview_ok then
+      pcall(vim.keymap.del, 'n', 'gra', { buf = ev.buf }) -- vim.lsp.buf.code_action() mapped to <leader>ca
+      pcall(vim.keymap.del, 'n', 'grn', { buf = ev.buf }) -- vim.lsp.buf.rename() mapped to <leader>rn
+      -- gri is the only one useful here mapped to gi
+      pcall(vim.keymap.del, 'n', 'gri', { buf = ev.buf }) -- vim.lsp.buf.implementation() not really useful mapped to gr by goto_preview
+      pcall(vim.keymap.del, 'n', 'grr', { buf = ev.buf }) -- vim.lsp.buf.references() not really useful mapped to gr by goto_preview
+      pcall(vim.keymap.del, 'n', 'grt', { buf = ev.buf }) -- vim.lsp.buf.type_definition() not really useful
+      pcall(vim.keymap.del, 'n', 'grx', { buf = ev.buf }) -- vim.lsp.codelens.run() not really useful
+      pcall(vim.keymap.del, 'n', 'gO', { buf = ev.buf })  -- vim.lsp.codelens.run() not really useful bloat qf list
     end
   end,
 })
