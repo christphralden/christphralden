@@ -114,17 +114,14 @@ keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { desc = "Code actions" })
 keymap.set("n", "<leader>gs", function()
   if telescope_builtin_ok then telescope_builtin.git_status() end
 end, { desc = "Git status" })
-
 -- fugitive
 keymap.set("n", "<leader>gg", "<cmd>tabnew | Git | only<CR>", { desc = "Fugitive full page (Git Gud)" })
 keymap.set("n", "<leader>gd", "<cmd>Gvdiffsplit<CR>", { desc = "Git diff split (Git Diff)" })
-
 -- gitsigns
 keymap.set("n", "<leader>ga", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
 keymap.set("n", "\\", "<cmd>Gitsigns preview_hunk_inline<CR>", { desc = "Preview hunk" }) -- why \ ? bcs its close to next_hunk and prev_hunk below
 keymap.set("n", "{", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Previous hunk" })
 keymap.set("n", "}", "<cmd>Gitsigns next_hunk<CR>", { desc = "Next hunk" })
-
 -- grapple
 keymap.set("n", "<leader>q", "<cmd>Grapple toggle<CR>", { desc = "Tag file" })
 keymap.set("n", "<leader>w", "<cmd>Grapple toggle_tags<CR>", { desc = "Toggle tags" })
@@ -132,7 +129,5 @@ keymap.set("n", "<leader>1", "<cmd>Grapple select index=1<CR>", { desc = "Tag 1"
 keymap.set("n", "<leader>2", "<cmd>Grapple select index=2<CR>", { desc = "Tag 2" })
 keymap.set("n", "<leader>3", "<cmd>Grapple select index=3<CR>", { desc = "Tag 3" })
 keymap.set("n", "<leader>4", "<cmd>Grapple select index=4<CR>", { desc = "Tag 4" })
-
-
 -- mason
 keymap.set("n", "<leader>m", "<cmd>Mason<CR>")

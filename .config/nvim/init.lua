@@ -15,6 +15,7 @@ require("christphralden.plugins.rose-pine")
 require("christphralden.plugins.grapple")
 require("christphralden.plugins.conform")
 require("christphralden.plugins.gitsigns")
+require("christphralden.plugins.notify")
 require("christphralden.plugins.noice")
 
 
