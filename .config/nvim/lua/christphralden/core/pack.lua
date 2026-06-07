@@ -44,7 +44,7 @@ vim.pack.add({
   "https://github.com/nvim-tree/nvim-web-devicons",
 
   -- noice: floating cmdline + UI components
-  "https://github.com/MunifTanjim/nui.nvim",          -- required: UI primitives (popups, inputs, layouts)
-  -- "https://github.com/rcarriga/nvim-notify",       -- optional: replaces vim.notify with styled notifications (unused - messages disabled)
+  "https://github.com/MunifTanjim/nui.nvim", -- required: UI primitives (popups, inputs, layouts)
+  "https://github.com/rcarriga/nvim-notify", -- optional: replaces vim.notify with styled notifications (unused - messages disabled)
   "https://github.com/folke/noice.nvim",
 })
