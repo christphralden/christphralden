@@ -118,6 +118,12 @@ functions:
       desc: "cd into config dir and open in nvim",
     }
   - {
+      name: ga,
+      cmd: "ga [files...]",
+      category: git,
+      desc: "git add files and show status",
+    }
+  - {
       name: fgco,
       cmd: "fgco",
       category: git,
@@ -141,3 +147,8 @@ functions:
       category: utils,
       desc: "yazi with cwd handoff back to shell",
     }
+bindkeys:
+  - { name: "git commit", cmd: "^Xgc", category: bindkeys, desc: "git commit -m with cursor inside quotes" }
+  - { name: "git push", cmd: "^Xgp", category: bindkeys, desc: "git push origin" }
+  - { name: "clear screen", cmd: "^Xl", category: bindkeys, desc: "clear screen" }
+  - { name: "edit command", cmd: "^Xe", category: bindkeys, desc: "open current command in nvim" }

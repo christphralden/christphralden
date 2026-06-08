@@ -73,8 +73,6 @@ keymap.set("v", "<C-u>", "<C-u>zz", { desc = "Scroll up centered" })
 keymap.set("n", ">", ">gv", { desc = "Indent right" })
 keymap.set("n", "<", "<gv", { desc = "Indent left" })
 
-keymap.set("n", "<leader>s", "<cmd>wa<cr>", { desc = "Save all" })
-
 keymap.set("n", "<leader>ya", "<cmd>%y<cr>", { desc = "Yank all lines" })
 
 keymap.set("n", "<Down>", "<cmd>m .+1<cr>==", { desc = "Move line down" })

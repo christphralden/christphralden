@@ -6,6 +6,8 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/Users/christopheralden/fvm/versions/stable/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export VISUAL=nvim
+export EDITOR=nvim
 
 export NVM_DIR="$HOME/.nvm"
 _load_nvm() {
@@ -39,4 +41,5 @@ export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 command -v starship &>/dev/null && eval "$(starship init zsh)"
 
 source "$HOME/.local/bin/scripts/alias/setup-alias.sh"
+source "$HOME/.local/bin/scripts/alias/widget.sh"
 source "$HOME/.local/bin/scripts/alias/desia.private.sh"

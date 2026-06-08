@@ -53,6 +53,11 @@ yy() {
   rm -f -- "$tmp"
 }
 
+unalias ga 2>/dev/null
+ga() {
+  git add "$@" && git status
+}
+
 fgco() {
   local branch
   branch=$(git branch --format="%(refname:short)" | fzf --preview="git log --oneline --color=always {} | head -20") || return
