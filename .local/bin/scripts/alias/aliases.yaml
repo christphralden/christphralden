@@ -1,0 +1,154 @@
+aliases:
+  - {
+      name: ls,
+      cmd: "lsd -hA --group-dirs first",
+      category: utils,
+      desc: "list with lsd, hidden files, dirs first",
+    }
+  - {
+      name: tree,
+      cmd: "tree -a -L 4 -h -f",
+      category: utils,
+      desc: "recursive tree, 4 levels, sizes",
+    }
+  - {
+      name: ip,
+      cmd: "ipconfig getifaddr en0",
+      category: utils,
+      desc: "local IP on en0",
+    }
+  - {
+      name: service,
+      cmd: "lsof -iTCP -sTCP:LISTEN -P -n",
+      category: utils,
+      desc: "show listening TCP ports",
+    }
+  - { name: cls, cmd: "clear", category: utils, desc: "clear terminal" }
+  - { name: vim, cmd: "nvim", category: utils, desc: "open neovim" }
+  - { name: nd, cmd: "npm run dev", category: utils, desc: "npm run dev" }
+  - {
+      name: detach,
+      cmd: "tmux detach",
+      category: tmux,
+      desc: "detach current session",
+    }
+  - {
+      name: tnew,
+      cmd: "tmux new -s",
+      category: tmux,
+      desc: "new named session",
+    }
+  - {
+      name: attach,
+      cmd: "tmux attach -t",
+      category: tmux,
+      desc: "attach to named session",
+    }
+  - {
+      name: tatt,
+      cmd: "tmux attach",
+      category: tmux,
+      desc: "attach to last session",
+    }
+  - {
+      name: gitnuke,
+      cmd: "git clean -df && git reset HEAD --hard",
+      category: git,
+      desc: "discard all untracked and unstaged changes",
+    }
+  - {
+      name: gbda,
+      cmd: "git branch --merged | grep -v '^*' | xargs git branch -d",
+      category: git,
+      desc: "delete all merged branches",
+    }
+  - {
+      name: unzipper,
+      cmd: "$HOME/.local/bin/scripts/utils/unzipper.sh",
+      category: utils,
+      desc: "extract all zips in cwd",
+    }
+  - {
+      name: menubar,
+      cmd: "$HOME/.local/bin/scripts/macos/menubar.scpt",
+      category: macos,
+      desc: "toggle menu bar autohide",
+    }
+  - {
+      name: dock,
+      cmd: "$HOME/.local/bin/scripts/macos/dock.sh",
+      category: macos,
+      desc: "apply dock settings",
+    }
+  - {
+      name: wallpaper,
+      cmd: "$HOME/.local/bin/scripts/macos/wallpaper.sh",
+      category: macos,
+      desc: "fzf-pick wallpaper from ~/Pictures",
+    }
+  - {
+      name: zen,
+      cmd: "$HOME/.local/bin/scripts/macos/zen.sh",
+      category: macos,
+      desc: "toggle zen mode (no menubar, dark wallpaper)",
+    }
+  - {
+      name: copy_dotfiles,
+      cmd: "$HOME/.local/bin/scripts/dotfiles/copy.sh",
+      category: dotfiles,
+      desc: "copy dotfiles to christphralden repo",
+    }
+  - {
+      name: falias,
+      cmd: "alias | fzf",
+      category: utils,
+      desc: "browse all user defined aliases and functions with fzf",
+    }
+functions:
+  - {
+      name: alias-d,
+      cmd: "alias-d",
+      category: utils,
+      desc: "browse all user defined aliases and functions with fzf",
+    }
+  - {
+      name: conf,
+      cmd: "conf <zshrc|warp|aerospace|nvim|tmux|scripts|wez|ghostty>",
+      category: utils,
+      desc: "cd into config dir and open in nvim",
+    }
+  - {
+      name: ga,
+      cmd: "ga [files...]",
+      category: git,
+      desc: "git add files and show status",
+    }
+  - {
+      name: fgco,
+      cmd: "fgco",
+      category: git,
+      desc: "fzf-select branch and git checkout",
+    }
+  - {
+      name: fop,
+      cmd: "fop",
+      category: utils,
+      desc: "fzf-select file and reveal dir in Finder",
+    }
+  - {
+      name: sd,
+      cmd: "sd",
+      category: utils,
+      desc: "fzf-select directory and cd into it",
+    }
+  - {
+      name: yy,
+      cmd: "yy [args]",
+      category: utils,
+      desc: "yazi with cwd handoff back to shell",
+    }
+bindkeys:
+  - { name: "git commit", cmd: "^Xgc", category: bindkeys, desc: "git commit -m with cursor inside quotes" }
+  - { name: "git push", cmd: "^Xgp", category: bindkeys, desc: "git push origin" }
+  - { name: "clear screen", cmd: "^Xl", category: bindkeys, desc: "clear screen" }
+  - { name: "edit command", cmd: "^Xe", category: bindkeys, desc: "open current command in nvim" }

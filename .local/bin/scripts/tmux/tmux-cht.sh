@@ -4,7 +4,7 @@ if [[ -z $selected ]]; then
     exit 0
 fi
 
-read -p "Search: " query #shit i want to search for e.g slice
+read -p "Search: " query
 
 if grep -qs "$selected" ~/.local/bin/scripts/tmux/.tmux-cht-lang; then
     query=`echo $query | tr ' ' '+'`

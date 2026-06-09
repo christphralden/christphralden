@@ -1,67 +1,23 @@
 #!/usr/bin/env zsh
 
+ALIASES_YAML="$HOME/.local/bin/scripts/alias/aliases.yaml"
+ALIASES_DIR="$HOME/.local/bin/scripts/alias"
+
+eval "$(ruby "$ALIASES_DIR/load_aliases.rb" "$ALIASES_YAML")"
+
 conf() {
-    case "$1" in
-        zshrc)
-            cd ~ && nvim .zshrc
-            ;;
-        warp)
-            cd ~/.warp/ && nvim
-            ;;
-        aerospace)
-            cd ~/.config/aerospace/ && nvim
-            ;;
-        nvim)
-            cd ~/.config/nvim/ && nvim
-            ;;
-        tmux)
-            cd ~/.config/tmux/ && nvim
-            ;;
-        scripts)
-            cd ~/.local/bin/scripts/ && nvim
-            ;;
-        wez)
-            cd ~/.config/wezterm/ && nvim
-            ;;
-        ghostty)
-        cd ~/.config/ghostty/ && nvim
-        ;;
-        *)
-            echo "Unknown configuration command: $1"
-            ;;
-    esac
+  case "$1" in
+    zshrc)     cd ~ && nvim .zshrc ;;
+    warp)      cd ~/.warp/ && nvim ;;
+    aerospace) cd ~/.config/aerospace/ && nvim ;;
+    nvim)      cd ~/.config/nvim/ && nvim ;;
+    tmux)      cd ~/.config/tmux/ && nvim ;;
+    scripts)   cd ~/.local/bin/scripts/ && nvim ;;
+    wez)       cd ~/.config/wezterm/ && nvim ;;
+    ghostty)   cd ~/.config/ghostty/ && nvim ;;
+    *)         echo "Unknown configuration: $1" ;;
+  esac
 }
-
-# utilities
-alias ls='lsd -hA --group-dirs first'
-alias tree='tree -a -L 4 -h -f'
-alias ip='ipconfig getifaddr en0'
-alias service="netstat -atp tcp"
-alias cls="clear"
-
-# tmux
-alias detach='tmux detach'
-alias tnew='tmux new -s'
-alias attach='tmux attach -t'
-alias tatt='tmux attach'
-
-# custom
-alias lsal='bat $HOME/.local/bin/scripts/alias/.listalias'
-alias copy_dotfiles='$HOME/.local/bin/scripts/dotfiles/copy.sh'
-alias gitnuke="git clean -df && git reset HEAD --hard"
-alias gbda="git branch --merged | grep -v '\*' | xargs git branch -d"
-alias unzipper='$HOME/.local/bin/scripts/utils/unzipper.sh'
-
-# macos
-alias menubar='$HOME/.local/bin/scripts/macos/menubar.scpt'
-alias dock='$HOME/.local/bin/scripts/macos/dock.sh'
-alias wallpaper='$HOME/.local/bin/scripts/macos/wallpaper.sh'
-alias zen='$HOME/.local/bin/scripts/macos/zen.sh'
-
-
-# js
-alias nd="npm run dev"
-
 
 sd() {
   local dir
@@ -89,10 +45,36 @@ fop() {
 }
 
 yy() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
-	yazi "$@" --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		builtin cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
+unalias ga 2>/dev/null
+ga() {
+  git add "$@" && git status
+}
+
+fgco() {
+  local branch
+  branch=$(git branch --format="%(refname:short)" | fzf --preview="git log --oneline --color=always {} | head -20") || return
+  git checkout "$branch"
+}
+
+alias-d() {
+  local sep
+  sep=$(printf '\037')
+  local selected
+  selected=$(
+    ruby "$ALIASES_DIR/list_aliases.rb" "$ALIASES_YAML" \
+    | awk -F'\t' -v sep="$(printf '\037')" '{
+        printf "%-10s  %-14s  %-55s  %s%s%s\n", $1, $2, $3, $4, sep, $3
+      }' \
+    | fzf --ansi --delimiter="$(printf '\037')" --with-nth=1 \
+          --header="category    name            command                                                      description"
+  ) || return
+  printf '%s\n' "${selected#*$(printf '\037')}"
 }

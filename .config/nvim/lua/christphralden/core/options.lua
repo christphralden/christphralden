@@ -1,8 +1,16 @@
+local utils_ok, utils = pcall(require, "christphralden.core.utils")
+if not utils_ok then
+  return
+end
+
 local opt = vim.opt
 
 -- line
 opt.relativenumber = true
 opt.number = true
+
+--statusline
+opt.laststatus = 3 -- combine statusline across tabs
 
 -- indentation
 opt.tabstop = 2
@@ -13,10 +21,11 @@ opt.autoindent = true
 -- line wrap
 opt.wrap = false
 vim.api.nvim_create_autocmd({ "FileType" }, {
-	pattern = { "text", "markdown", "gitcommit" },
-	callback = function()
-		opt.wrap = true
-	end,
+  group = utils.augroup("wrap_filetypes"),
+  pattern = { "text", "markdown", "gitcommit" },
+  callback = function()
+    opt.wrap = true
+  end,
 })
 -- search setting
 opt.ignorecase = true
@@ -32,22 +41,25 @@ opt.backspace = "indent,eol,start"
 
 -- clipboard
 opt.clipboard:append("unnamedplus")
+opt.isfname:append("@-@")
 
 -- split windows
 opt.splitright = true
 opt.splitbelow = true
 
--- no hl
-opt.hlsearch = false
+-- search
+opt.hlsearch = false -- no highlights
+opt.incsearch = true
 
 opt.iskeyword:append("-")
 
 -- netrw
 
--- vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+vim.g.netrw_liststyle = 1
 
+-- transparent
 vim.cmd([[
     highlight Normal guibg=NONE ctermbg=NONE
     highlight LineNr guibg=NONE ctermbg=NONE
@@ -66,11 +78,34 @@ vim.cmd([[
     highlight LualineInactive guibg=NONE ctermbg=NONE
 ]])
 
-vim.cmd("autocmd BufEnter * set formatoptions-=cro")
-vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = utils.augroup("format_options"),
+  callback = function()
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
+  end,
+})
 
 vim.api.nvim_create_user_command("Wq", "wq", {})
+vim.api.nvim_create_user_command("WQ", "wq", {})
 vim.api.nvim_create_user_command("Wqa", "wqa", {})
+vim.api.nvim_create_user_command("WQa", "wqa", {})
+vim.api.nvim_create_user_command("WQA", "wqa", {})
 vim.api.nvim_create_user_command("Wa", "wa", {})
+vim.api.nvim_create_user_command("WA", "wa", {})
+
+opt.inccommand = "split"
+
+-- you ever get the fucking swap file notif when claude is cooking? fuck you
+opt.swapfile = false
+opt.backup = false
+
+-- presistent undodir
+vim.opt.undodir = vim.fn.stdpath('data') .. "/undodir"
+
+-- minimize cmd when not in use
+-- vim.o.cmdheight = 0
+
+-- 8 scroll padding
+opt.scrolloff = 8
 
 -----
