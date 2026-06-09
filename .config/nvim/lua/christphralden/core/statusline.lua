@@ -1,32 +1,28 @@
--- Helper function to get the current Git branch name
 local function git_branch()
   local handle = io.popen("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
   if (handle == nil) then
-    return
+    return ""
   end
   local branch = handle:read("*a")
-  return branch ~= "" and branch or "Empty" -- Return "Empty" if no branch found
+  return branch ~= "" and branch or ""
 end
 
--- Define highlight groups for styling the statusline
 local function setup_highlights()
-  vim.api.nvim_set_hl(0, "StatuslineBranch", { fg = "#ebbcba", bold = true }) -- Rose Pine pink
-  vim.api.nvim_set_hl(0, "StatuslineFile", { fg = "#c4a7e7" })               -- Rose Pine purple
-  vim.api.nvim_set_hl(0, "StatuslineCWD", { fg = "#9ccfd8" })                -- Rose Pine teal
+  vim.api.nvim_set_hl(0, "StatuslineBranch", { fg = "#F8FAFC", bg = "#1E293B" })
+  vim.api.nvim_set_hl(0, "StatuslineFile", { fg = "#F8FAFC", bg = "#1E293B", bold = true })
+  vim.api.nvim_set_hl(0, "StatuslineCWD", { fg = "#D3D3D3", bg = "#1E293B" })
 end
 
 local function setup_statusline()
   local statusline = table.concat({
-    "%#StatuslineBranch#", -- Branch section color
-    " " .. git_branch() .. " ", -- Git branch symbol and name
+    "%#StatuslineBranch#",
+    " " .. git_branch() .. " ",
 
-    "%#StatuslineFile#", -- File section color
-    "%f", -- Filename
+    "%#StatuslineFile#%=",
+    "%m %f ",
 
-    "%m", -- Modified indicator
-
-    "%=%#StatuslineCWD#", -- Align CWD to the right and set color
-    vim.fn.getcwd(), -- Current working directory
+    "%=%#StatuslineCWD#",
+    " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " ",
   })
 
   vim.opt.statusline = statusline
@@ -37,5 +33,4 @@ local function init()
   setup_statusline()
 end
 
--- Run the initialization
 init()

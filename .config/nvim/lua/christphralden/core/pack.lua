@@ -47,6 +47,9 @@ vim.pack.add({
 
   -- nice to haves
   "https://github.com/folke/zen-mode.nvim",
+  "https://github.com/Wansmer/treesj",
+  "https://github.com/athar-qadri/scratchpad.nvim",
 
-  "https://github.com/rmagatti/goto-preview" -- lsp on crack
+  -- preview
+  "https://github.com/rmagatti/goto-preview"
 })

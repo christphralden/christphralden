@@ -55,9 +55,9 @@ opt.iskeyword:append("-")
 
 -- netrw
 
--- vim.g.netrw_liststyle = 3
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+vim.g.netrw_liststyle = 1
 
 -- transparent
 vim.cmd([[
@@ -86,8 +86,12 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 vim.api.nvim_create_user_command("Wq", "wq", {})
+vim.api.nvim_create_user_command("WQ", "wq", {})
 vim.api.nvim_create_user_command("Wqa", "wqa", {})
+vim.api.nvim_create_user_command("WQa", "wqa", {})
+vim.api.nvim_create_user_command("WQA", "wqa", {})
 vim.api.nvim_create_user_command("Wa", "wa", {})
+vim.api.nvim_create_user_command("WA", "wa", {})
 
 opt.inccommand = "split"
 

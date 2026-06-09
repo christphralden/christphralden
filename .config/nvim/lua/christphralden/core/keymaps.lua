@@ -5,6 +5,8 @@ local conform_ok, conform = pcall(require, "conform")
 local telescope_builtin_ok, telescope_builtin = pcall(require, "telescope.builtin")
 local zen_ok, zen = pcall(require, 'zen-mode')
 local goto_preview_ok, goto_preview = pcall(require, 'goto-preview')
+local treesj_ok, treesj = pcall(require, 'treesj')
+local scratchpad_ok, scratchpad = pcall(require, 'scratchpad')
 
 -- set
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode" })
@@ -37,7 +39,7 @@ keymap.set("n", "<leader>e", "<cmd>Ex<cr>", { desc = "Open explorer" })
 keymap.set("n", "<leader>r", "<cmd>Rex<cr>", { desc = "Return to explorer" })
 
 -- telescope
-keymap.set("n", "<leader>en", function()
+keymap.set("n", "<leader>EN", function()
   if telescope_builtin_ok then
     telescope_builtin.find_files({ cwd = vim.fn.stdpath("config") })
   end
@@ -98,7 +100,7 @@ keymap.set("n", "gD", function()
   if telescope_builtin_ok then telescope_builtin.lsp_definitions() end
 end, { desc = "Go to definition" })
 
-vim.keymap.set("n", "gd", function()
+keymap.set("n", "gd", function()
   if goto_preview_ok then goto_preview.goto_preview_definition() end
 end, { noremap = true })
 
@@ -106,7 +108,7 @@ keymap.set("n", "gR", function()
   if telescope_builtin_ok then telescope_builtin.lsp_references() end
 end, { desc = "Go to references" })
 
-vim.keymap.set("n", "gr", function()
+keymap.set("n", "gr", function()
   if goto_preview_ok then goto_preview.goto_preview_references() end
 end, { noremap = true })
 
@@ -114,11 +116,11 @@ keymap.set("n", "gI", function()
   if telescope_builtin_ok then telescope_builtin.lsp_implementations() end
 end, { desc = "Go to implementations" })
 
-vim.keymap.set("n", "gi", function()
+keymap.set("n", "gi", function()
   if goto_preview_ok then goto_preview.goto_preview_implementation() end
 end, { noremap = true })
 
-vim.keymap.set("n", "<esc>", function()
+keymap.set("n", "<esc>", function()
   if goto_preview_ok then goto_preview.close_all_win() end
 end, { noremap = true })
 
@@ -128,12 +130,12 @@ keymap.set("n", "<leader>f", function()
   end
 end, { desc = "Format buffer" })
 keymap.set("n", "df", vim.diagnostic.open_float, { desc = "Show line diagnostics" })
-vim.keymap.set('n', '[d', function()
+keymap.set('n', '[d', function()
   vim.diagnostic.jump({ count = -1, float = true })
 end, { desc = "Previous diagnostic" })
 
 
-vim.keymap.set('n', ']d', function()
+keymap.set('n', ']d', function()
   vim.diagnostic.jump({ count = 1, float = true })
 end, { desc = "Next diagnostic" })
 keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover documentation" })
@@ -163,10 +165,30 @@ keymap.set("n", "<leader>m", "<cmd>Mason<cr>", { desc = "Open mason" })
 -- noice
 keymap.set("n", "<leader>nd", "<cmd>Noice dismiss<cr>", { desc = "Dismiss all notifications" })
 keymap.set("n", "<leader>np", "<cmd>NoicePick<cr>", { desc = "Dismiss all notifications" })
-vim.keymap.set("n", "<leader>x", function()
+keymap.set("n", "<leader>x", function()
   if zen_ok then zen.toggle() end
 end)
 -- replacewithregister
-vim.keymap.set("n", "r", "<Plug>ReplaceWithRegisterOperator", { noremap = false })
-vim.keymap.set("n", "rr", "<Plug>ReplaceWithRegisterLine", { noremap = false })
-vim.keymap.set("x", "rw", "<Plug>ReplaceWithRegisterVisual", { noremap = false })
+keymap.set("n", "r", "<Plug>ReplaceWithRegisterOperator", { noremap = false })
+keymap.set("n", "rr", "<Plug>ReplaceWithRegisterLine", { noremap = false })
+keymap.set("x", "rw", "<Plug>ReplaceWithRegisterVisual", { noremap = false })
+-- treesj
+keymap.set("n", "gS", function()
+  if treesj_ok then treesj.split() end
+end, { desc = "Split to multiple lines" })
+keymap.set("n", "gJ", function()
+  if treesj_ok then treesj.join() end
+end, { desc = "Join to single line" })
+
+keymap.set({ "n", "v" }, "<leader>sc", function()
+  if scratchpad_ok then
+    scratchpad.ui:new_scratchpad()
+  end
+end, { desc = "Show scratchpad" })
+
+keymap.set({ "n", "v" }, "<leader>SC", function()
+  if scratchpad_ok then
+    scratchpad.ui:sync()
+    scratchpad.ui:new_scratchpad()
+  end
+end, { desc = "Push selection / current line to scratchpad" })

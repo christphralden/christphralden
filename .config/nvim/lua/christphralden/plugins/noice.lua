@@ -39,6 +39,9 @@ noice.setup({
           { find = ".*Pattern not found.*$" },
           { find = '^%d+ lines .ed %d+ times?$' },
           { find = '^%d+ lines yanked$' },
+          { find = '^%d+ hunks? staged' },
+          { find = '^%d+ hunks? unstaged' },
+          { find = 'hunk %d+ of %d+' },
           { kind = 'wmsg' },
         }
       },

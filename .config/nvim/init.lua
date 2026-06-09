@@ -21,6 +21,8 @@ require("christphralden.plugins.notify")
 require("christphralden.plugins.noice")
 require("christphralden.plugins.zen")
 require("christphralden.plugins.goto")
+require("christphralden.plugins.treesj")
+require("christphralden.plugins.scratchpad")
 
 require("christphralden.core.options")
 require("christphralden.core.keymaps")

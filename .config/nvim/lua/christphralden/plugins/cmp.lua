@@ -50,11 +50,11 @@ cmp.setup({
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ["<C-j>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then cmp.select_prev_item() else fallback() end
+    ["<C-j>"] = cmp.mapping(function()
+      if cmp.visible() then cmp.select_prev_item() end
     end, { "i", "s" }),
-    ["<C-k>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then cmp.select_next_item() else fallback() end
+    ["<C-k>"] = cmp.mapping(function()
+      if cmp.visible() then cmp.select_next_item() end
     end, { "i", "s" }),
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
