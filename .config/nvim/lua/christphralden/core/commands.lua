@@ -1,4 +1,4 @@
-require("christphralden.core.jsdoc")
+pcall(require, "christphralden.core.jsdoc")
 
 vim.api.nvim_create_user_command("PackAdd", function(opts)
   vim.pack.add(opts.fargs)
@@ -30,3 +30,13 @@ vim.api.nvim_create_user_command("PackCheck", function()
     return
   end
 end, { nargs = "*", desc = "Check plugins for updates" })
+
+vim.api.nvim_create_user_command("TmuxRenameWindow", function(opts)
+  if opts.args:match("%S") then
+    local name = vim.fn.shellescape(opts.args)
+    vim.fn.system("tmux rename-window " .. name)
+    vim.notify("Renamed to " .. name, vim.log.levels.SUCCESS)
+  else
+    vim.notify("Bad argument: must be a string", vim.log.levels.ERROR)
+  end
+end, { nargs = "?" })

@@ -8,21 +8,20 @@ local function git_branch()
 end
 
 local function setup_highlights()
-  vim.api.nvim_set_hl(0, "StatuslineBranch", { fg = "#F8FAFC", bg = "#1E293B" })
-  vim.api.nvim_set_hl(0, "StatuslineFile", { fg = "#F8FAFC", bg = "#1E293B", bold = true })
-  vim.api.nvim_set_hl(0, "StatuslineCWD", { fg = "#D3D3D3", bg = "#1E293B" })
+  vim.api.nvim_set_hl(0, "StatuslineBranch", { fg = "#e0def4" })
+  vim.api.nvim_set_hl(0, "StatuslineFile", { fg = "#e0def4", bold = true })
+  vim.api.nvim_set_hl(0, "StatuslineCWD", { fg = "#6e6a86" })
 end
 
 local function setup_statusline()
   local statusline = table.concat({
     "%#StatuslineBranch#",
-    " " .. git_branch() .. " ",
+    " " .. git_branch(),
 
     "%#StatuslineFile#%=",
-    "%m %f ",
+    "%m %f",
 
     "%=%#StatuslineCWD#",
-    " " .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t") .. " ",
   })
 
   vim.opt.statusline = statusline

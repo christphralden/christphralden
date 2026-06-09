@@ -1,4 +1,4 @@
--- require("vim._core.ui2").enable({})
+require("vim._core.ui2").enable({})
 
 -- core
 require("christphralden.core.pack")
@@ -11,9 +11,8 @@ require("christphralden.plugins.autopairs")
 require("christphralden.plugins.autotag")
 require("christphralden.plugins.telescope")
 require("christphralden.plugins.treesitter")
-require("christphralden.plugins.rose-pine")
--- load colors after rose-pine setup
-require("christphralden.core.colors")
+-- require("christphralden.plugins.colors.rose-pine")
+require("christphralden.plugins.colors.lackluster")
 require("christphralden.plugins.grapple")
 require("christphralden.plugins.conform")
 require("christphralden.plugins.gitsigns")
@@ -23,6 +22,7 @@ require("christphralden.plugins.zen")
 require("christphralden.plugins.goto")
 require("christphralden.plugins.treesj")
 require("christphralden.plugins.scratchpad")
+require("christphralden.plugins.alpha")
 
 require("christphralden.core.options")
 require("christphralden.core.keymaps")

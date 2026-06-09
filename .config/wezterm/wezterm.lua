@@ -66,7 +66,7 @@ local background_with_wallpaper = {
       -- File = wez.config_dir .. "/backgrounds/pain.jpg",
       -- File = wez.config_dir .. "/backgrounds/azumanga.gif",
       -- File = wez.config_dir .. "/backgrounds/matsuya_japan.jpg",
-      File = wez.config_dir .. "/backgrounds/strongzero.png",
+      File = wez.config_dir .. "/backgrounds/suntory.png",
     },
     width = "Cover",
     height = "Cover",
@@ -82,22 +82,22 @@ local background_with_wallpaper = {
 local transparent_background = {
   {
     source = {
-      Color = "#0a0a0a",
+      Color = "#000000",
     },
     width = "100%",
     height = "100%",
-    opacity = 1,
+    opacity = 0.9,
   },
 }
 
 -- Initialize with the wallpaper by default
-config.background = background_with_wallpaper
+-- config.background = background_with_wallpaper
 
--- config.background = transparent_background
--- config.macos_window_background_blur = 30
+config.background = transparent_background
+config.macos_window_background_blur = 75
 
 -- Toggle function between the two backgrounds
-local current_background = "wallpaper"
+local current_background = "transparent"
 
 wez.on("toggle-background", function(window)
   if current_background == "wallpaper" then
@@ -105,7 +105,7 @@ wez.on("toggle-background", function(window)
     config.background = transparent_background
     current_background = "transparent"
     config.window_background_opacity = 0
-    config.macos_window_background_blur = 30
+    config.macos_window_background_blur = 75
   else
     -- Switch to wallpaper
     config.background = background_with_wallpaper
@@ -131,8 +131,8 @@ config.keys = {
 
 -- Window options
 config.window_padding = {
-  left = 10,
-  right = 10,
+  left = 40,
+  right = 40,
   top = 40,
   bottom = 20,
 }

@@ -16,6 +16,7 @@ run() {
     "$HOME/.config/nvim"
     "$HOME/.config/aerospace"
     "$HOME/.config/ghostty"
+    "$HOME/.config/starship"
   )
 
   local files_to_copy_to_local=(

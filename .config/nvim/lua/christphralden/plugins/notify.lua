@@ -5,5 +5,7 @@ end
 
 notify.setup({
   background_colour = "#000000",
-  stages = "fade",
+  fps = 30,
+  stages = "static",
+  render = "wrapped-compact"
 })

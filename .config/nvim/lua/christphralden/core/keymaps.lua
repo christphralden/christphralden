@@ -7,6 +7,7 @@ local zen_ok, zen = pcall(require, 'zen-mode')
 local goto_preview_ok, goto_preview = pcall(require, 'goto-preview')
 local treesj_ok, treesj = pcall(require, 'treesj')
 local scratchpad_ok, scratchpad = pcall(require, 'scratchpad')
+local grapple_ok, grapple = pcall(require, 'grapple')
 
 -- set
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode" })
@@ -154,7 +155,13 @@ keymap.set("n", "\\", "<cmd>Gitsigns preview_hunk_inline<cr>", { desc = "Preview
 keymap.set("n", "{", "<cmd>Gitsigns prev_hunk<cr>", { desc = "Previous hunk" })
 keymap.set("n", "}", "<cmd>Gitsigns next_hunk<cr>", { desc = "Next hunk" })
 -- grapple
-keymap.set("n", "<leader>q", "<cmd>Grapple toggle<cr>", { desc = "Tag file" })
+keymap.set("n", "<leader>q", function()
+  if grapple_ok then
+    local exists = grapple.exists()
+    grapple.toggle()
+    vim.notify(exists and "Untagged" or "Tagged", vim.log.levels.INFO)
+  end
+end, { desc = "Tag file" })
 keymap.set("n", "<leader>w", "<cmd>Grapple toggle_tags<cr>", { desc = "Toggle tags" })
 keymap.set("n", "<leader>1", "<cmd>Grapple select index=1<cr>", { desc = "Tag 1" })
 keymap.set("n", "<leader>2", "<cmd>Grapple select index=2<cr>", { desc = "Tag 2" })

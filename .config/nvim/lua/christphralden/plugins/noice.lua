@@ -58,6 +58,9 @@ noice.setup({
         width = 60,
         height = "auto",
       },
+      border = {
+        style = 'rounded'
+      },
     },
   },
   cmdline   = {

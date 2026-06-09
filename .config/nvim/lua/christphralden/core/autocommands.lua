@@ -51,3 +51,22 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.keymap.set('n', 'q', '<cmd>close<cr>', { buffer = event.buf, silent = true })
   end,
 })
+
+
+-- do text wrapping on readable file types
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  group = utils.augroup("wrap_filetypes"),
+  pattern = { "text", "markdown", "gitcommit" },
+  callback = function()
+    vim.opt.wrap = true
+  end,
+})
+
+
+-- format
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = utils.augroup("format_options"),
+  callback = function()
+    vim.opt.formatoptions:remove({ "c", "r", "o" })
+  end,
+})

@@ -1,8 +1,3 @@
-local utils_ok, utils = pcall(require, "christphralden.core.utils")
-if not utils_ok then
-  return
-end
-
 local opt = vim.opt
 
 -- line
@@ -20,13 +15,7 @@ opt.autoindent = true
 
 -- line wrap
 opt.wrap = false
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  group = utils.augroup("wrap_filetypes"),
-  pattern = { "text", "markdown", "gitcommit" },
-  callback = function()
-    opt.wrap = true
-  end,
-})
+
 -- search setting
 opt.ignorecase = true
 opt.smartcase = true
@@ -78,13 +67,6 @@ vim.cmd([[
     highlight LualineInactive guibg=NONE ctermbg=NONE
 ]])
 
-vim.api.nvim_create_autocmd("BufEnter", {
-  group = utils.augroup("format_options"),
-  callback = function()
-    vim.opt.formatoptions:remove({ "c", "r", "o" })
-  end,
-})
-
 vim.api.nvim_create_user_command("Wq", "wq", {})
 vim.api.nvim_create_user_command("WQ", "wq", {})
 vim.api.nvim_create_user_command("Wqa", "wqa", {})
@@ -107,5 +89,10 @@ vim.opt.undodir = vim.fn.stdpath('data') .. "/undodir"
 
 -- 8 scroll padding
 opt.scrolloff = 8
+
+opt.shortmess:append("I")
+vim.opt.fillchars = {
+  eob = " "
+}
 
 -----

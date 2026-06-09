@@ -6,7 +6,9 @@ end
 grapple.setup({
   scope = "git_branch",
   win_opts = {
-    footer = "" -- i dont like footer
+    footer = "", -- i dont like footer
+    border = "rounded"
+
   }
 })
 

@@ -1,0 +1,45 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+palette = "lackluster"
+
+format = "$directory$git_branch$git_status$line_break$character"
+
+add_newline = true
+
+[palettes.lackluster]
+lack = "#708090"
+luster = "#deeeed"
+orange = "#ffaa88"
+green = "#789978"
+blue = "#7788AA"
+red = "#D70000"
+black = "#424242"
+gray1 = "#575757"
+gray2 = "#6a6a6a"
+gray3 = "#7a7a7a"
+gray4 = "#8e8e8e"
+gray5 = "#bebebe"
+gray6 = "#d8d8d8"
+gray7 = "#ececec"
+gray8 = "#ececec"
+gray9 = "#ececec"
+tokyo_red = "#aa6666"
+
+[directory]
+style = "gray5"
+format = "[$path]($style)"
+truncation_length = 3
+truncate_to_repo = false
+
+[git_branch]
+format = " [\\[$branch\\]]($style)"
+style = "gray6"
+symbol = ""
+
+[git_status]
+format = "[$all_status$ahead_behind]($style)"
+style = "orange"
+
+[character]
+success_symbol = "[>](bold gray3)"
+error_symbol = "[>](bold red)"

@@ -23,9 +23,18 @@ aliases:
       category: utils,
       desc: "show listening TCP ports",
     }
-  - { name: cls, cmd: "clear", category: utils, desc: "clear terminal" }
-  - { name: vim, cmd: "nvim", category: utils, desc: "open neovim" }
-  - { name: nd, cmd: "npm run dev", category: utils, desc: "npm run dev" }
+  - name: cls
+    cmd: "clear"
+    category: utils
+    desc: "clear terminal"
+  - name: vim
+    cmd: "nvim"
+    category: utils
+    desc: "open neovim"
+  - name: nd
+    cmd: "npm run dev"
+    category: utils
+    desc: "npm run dev"
   - {
       name: detach,
       cmd: "tmux detach",
@@ -148,7 +157,27 @@ functions:
       desc: "yazi with cwd handoff back to shell",
     }
 bindkeys:
-  - { name: "git commit", cmd: "^Xgc", category: bindkeys, desc: "git commit -m with cursor inside quotes" }
-  - { name: "git push", cmd: "^Xgp", category: bindkeys, desc: "git push origin" }
-  - { name: "clear screen", cmd: "^Xl", category: bindkeys, desc: "clear screen" }
-  - { name: "edit command", cmd: "^Xe", category: bindkeys, desc: "open current command in nvim" }
+  - {
+      name: "git commit",
+      cmd: "^Xgc",
+      category: bindkeys,
+      desc: "git commit -m with cursor inside quotes",
+    }
+  - {
+      name: "git push",
+      cmd: "^Xgp",
+      category: bindkeys,
+      desc: "git push origin",
+    }
+  - {
+      name: "clear screen",
+      cmd: "^Xl",
+      category: bindkeys,
+      desc: "clear screen",
+    }
+  - {
+      name: "edit command",
+      cmd: "^Xe",
+      category: bindkeys,
+      desc: "open current command in nvim",
+    }

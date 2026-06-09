@@ -1,6 +1,7 @@
 vim.pack.add({
   -- colors
-  "https://github.com/rose-pine/neovim",               -- lua functions
+  "https://github.com/rose-pine/neovim",
+  "https://github.com/slugbyte/lackluster.nvim",
   -- essentials
   "https://github.com/nvim-lua/plenary.nvim",          -- lua functions
   "https://github.com/christoomey/vim-tmux-navigator", -- enable tmux navigation in nvim
@@ -51,5 +52,8 @@ vim.pack.add({
   "https://github.com/athar-qadri/scratchpad.nvim",
 
   -- preview
-  "https://github.com/rmagatti/goto-preview"
+  "https://github.com/rmagatti/goto-preview",
+
+  -- startup art
+  "https://github.com/goolord/alpha-nvim",
 })
