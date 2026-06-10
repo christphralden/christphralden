@@ -85,7 +85,7 @@ opt.backup = false
 vim.opt.undodir = vim.fn.stdpath('data') .. "/undodir"
 
 -- minimize cmd when not in use
--- vim.o.cmdheight = 0
+vim.o.cmdheight = 0
 
 -- 8 scroll padding
 opt.scrolloff = 8
